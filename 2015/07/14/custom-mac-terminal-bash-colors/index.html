@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Technikyle</title>
+  <title>Terminal Bash Command Line &amp; Colors | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Technikyle">
-<meta property="og:url" content="http://futbalguy.github.io/archives/2015/index.html">
+  <meta name="description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). 
+The default mostly-white wall of text can be hard on the eyes and actually kind of di">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Terminal Bash Command Line & Colors">
+<meta property="og:url" content="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description">
+<meta property="og:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). 
+The default mostly-white wall of text can be hard on the eyes and actually kind of di">
+<meta property="og:image" content="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png">
+<meta property="og:image" content="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1-1200x374.png">
+<meta property="og:updated_time" content="2015-07-16T20:21:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Technikyle">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Terminal Bash Command Line & Colors">
+<meta name="twitter:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). 
+The default mostly-white wall of text can be hard on the eyes and actually kind of di">
   
   
     <link rel="icon" href="favicon.png">
@@ -122,220 +128,81 @@
   </div>
 </aside>
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2015" class="archive-year">2015</a>
-      </div>
-      <section class="archives-wrap">
-        <div class="archives">
+      <section id="main"><article id="post-custom-mac-terminal-bash-colors" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png
-)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/14/custom-mac-terminal-bash-colors/">Terminal Bash Command Line &amp; Colors</a>
+    <h1 class="article-title" itemprop="name">
+      Terminal Bash Command Line &amp; Colors
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2015/07/14/custom-mac-terminal-bash-colors/">
-      <time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">Jul 14</time>
+      <time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
   </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
+
+        </div>
+      </header>
     
-    <div class="archive-article-thumbnail">
-      <a href="/2015/07/02/storing-images-in-firebase/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). </p>
+<p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs? </p>
+<p>YES, so let’s make some changes that will increase producitivity and asthetics at the same time!</p>
+<h3 id="Customizing_Your_Terminal_Bash_Profile">Customizing Your Terminal Bash Profile</h3><p>First, you need to learn a little about bash. bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
+<p>The first step is to go to start Terminal, navigate to your home directory, and open .bash_profile in a text editor.</p>
+<div class="code"><br><br>#### terminal<br><br>[js]<br>//navigate to home directory and<br>//open .bash_profile in a text editor (i.e. sublime)<br>cd ~<br>sublime .bash_profile<br><br>[/js]<br></div>
+
+<p>Second, you can customize the bash prompt to show full filepath, hide username, and show your current git branch name (if applicable). We also add a new line to seperate the prompt from the prior command.</p>
+<div class="code"><br><br>#### .bash_profile<br><br>[bash]<br><br>#Git branch in prompt.<br>parse_git_branch() {<br>    git branch 2&gt; /dev/null | sed -e ‘/^[^<em>]/d’ -e ‘s/</em> (.*)/(\1)/‘<br>}<br><br>#custom bash prompt<br>export PS1=&quot;\n\w\ $(parse_git_branch) &quot;<br><br>[/bash]<br></div>
+
+<p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
+<div class="code"><br><br>#### .bash_profile<br><br>[bash]<br># High Intensty Colors<br>GREENH=’[&#92;&#48;33[0;92m]‘ # Green<br>BLUEH=’[&#92;&#48;33[0;94m]‘ # Blue<br><br>NC=’[&#92;&#48;33[0m]‘ # No color<br><br>#Git branch in prompt.<br>parse_git_branch() {<br>    git branch 2&gt; /dev/null | sed -e ‘/^[^<em>]/d’ -e ‘s/</em> (.*)/(\1)/‘<br>}<br><br>#custom bash prompt with colors<br>export PS1=&quot;\n${BLUEH}\w${GREENH}\$(parse_git_branch)${NC} &quot;<br><br>#CLICOLOR will turn colors on or off.<br>export CLICOLOR=1<br><br>#LS_COLORS is not required, and will let you customize the colors<br>export LSCOLORS=ExFxBxDxCxegedabagacad<br><br>[/bash]<br></div>
+
+<h3 id="Behold_The_Difference">Behold The Difference</h3><h4 id="Before">Before</h4><p><a href="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png" target="_blank" rel="external"><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png" alt="Screen Shot 2015-07-14 at 2.39.54 PM"></a></p>
+<h4 id="AFTER!!!!">AFTER!!!!</h4><p><a href="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1.png" target="_blank" rel="external"><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1-1200x374.png" alt="Screen Shot 2015-07-14 at 1.59.19 PM"></a></p>
+
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic6ot8gi000hfbpffb6dcffc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
     
-    <header class="archive-article-header">
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/02/storing-images-in-firebase/">Storing Images In Firebase</a>
-    </h1>
   
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/02/storing-images-in-firebase/">
-      <time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">Jul 2</time>
+    <a href="/2015/07/02/storing-images-in-firebase/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Storing Images In Firebase</div>
     </a>
-  </div>
+  
+</nav>
 
-
-      
-    </header>
-  </div>
+  
 </article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/06/19/bookshelf-js-orm/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/19/bookshelf-js-orm/">Bookshelf.js Javascript ORM and SQL</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/06/19/bookshelf-js-orm/">
-      <time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">Jun 19</time>
-    </a>
-  </div>
 
 
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/09/expressjs-session-tutorial/">ExpressJS Session Tutorial</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/06/09/expressjs-session-tutorial/">
-      <time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">Jun 9</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/04/21/super-javascript-developer-tools/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/04/21/super-javascript-developer-tools/">Super JavaScript Developer Tools</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/04/21/super-javascript-developer-tools/">
-      <time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">Apr 21</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/03/05/hello-world-1/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/03/05/hello-world-1/">Hello World!</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/03/05/hello-world-1/">
-      <time datetime="2015-03-06T03:36:23.000Z" itemprop="datePublished">Mar 5</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  </section>
+</section>
       
         <aside id="sidebar">
   

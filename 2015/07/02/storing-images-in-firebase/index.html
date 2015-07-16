@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Technikyle</title>
+  <title>Storing Images In Firebase | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Technikyle">
-<meta property="og:url" content="http://futbalguy.github.io/archives/2015/index.html">
+  <meta name="description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase. 
+We picked Firebase to of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Storing Images In Firebase">
+<meta property="og:url" content="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description">
+<meta property="og:description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase. 
+We picked Firebase to of">
+<meta property="og:updated_time" content="2015-07-16T20:21:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Technikyle">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Storing Images In Firebase">
+<meta name="twitter:description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase. 
+We picked Firebase to of">
   
   
     <link rel="icon" href="favicon.png">
@@ -122,220 +126,101 @@
   </div>
 </aside>
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2015" class="archive-year">2015</a>
-      </div>
-      <section class="archives-wrap">
-        <div class="archives">
+      <section id="main"><article id="post-storing-images-in-firebase" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png
-)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/14/custom-mac-terminal-bash-colors/">Terminal Bash Command Line &amp; Colors</a>
+    <h1 class="article-title" itemprop="name">
+      Storing Images In Firebase
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/14/custom-mac-terminal-bash-colors/">
-      <time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">Jul 14</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/07/02/storing-images-in-firebase/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/02/storing-images-in-firebase/">Storing Images In Firebase</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2015/07/02/storing-images-in-firebase/">
-      <time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">Jul 2</time>
+      <time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
   </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
+
+        </div>
+      </header>
     
-    <div class="archive-article-thumbnail">
-      <a href="/2015/06/19/bookshelf-js-orm/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase. </p>
+<p>We picked Firebase to offload storage and data transfer work from our own server. We also just wanted to check out Firebase after hearing so many good things about its ease of use!</p>
+<p>Getting started with Firebase is very fast and straight-forward! Go to <a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a> and add a new account. They will provide you with a database for storing your information.</p>
+<h4 id="Our_Stack">Our Stack</h4><ul>
+<li><a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a></li>
+<li><a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a></li>
+</ul>
+<h3 id="Firebase_Basics">Firebase Basics</h3><p>All Firebase database data is stored as JSON objects. When you add data to the JSON tree, it becomes a key in the existing JSON structure.</p>
+<p>However, <strong>Firebase databases have no native support for arrays</strong>. If we try to store an array, it really gets stored as an “object” with integers as the key names.</p>
+<p>You access the database with a URL and command it to do what you need. For example, if you want to save images from event #3, you could use the following URL path:<br><em><a href="https://yourAppName.firebaseio.com/events/3/images" target="_blank" rel="external">https://yourAppName.firebaseio.com/events/3/images</a></em></p>
+<h3 id="Interacting_With_Firebase">Interacting With Firebase</h3><p>There are several options for interacting with Firebase:</p>
+<ol>
+<li>Firebase website</li>
+<li>RESTful API</li>
+<li>Firebase and AngularFire modules for Angular</li>
+</ol>
+<p>We chose Option 3 - Firebase and AngularFire modules - because it is the most Javascript-friendly. </p>
+<p><strong>PRO TIP:</strong> Image files for Firebase need to be in a string format (and must be under 10mb)! You’ll want to get the base64-encoded contents so you can store it as a string. The general approach is to convert the file locally (using FileReader). </p>
+<p>Now let’s see how it works in practice…</p>
+<h3 id="Javascript_and_Firebase">Javascript and Firebase</h3><p>First step: install bower dependency manager and the bower components for Firebase and AngularFire</p>
+<div class="code"><br><br>#### terminal<br><br>[code]<br>bower init<br>bower install firebase —save<br>bower install angularfire —save<br><br>[/code]<br></div>
+
+<p>Now instantiate a Firebase object with the URL path for your app and inject the firebase module into your app.</p>
+<div class="code"><br><br>#### app.js<br><br>[js]<br>var fb = new Firebase(&quot;<a href="https://yourAppName.firebaseio.com/&amp;quot" target="_blank" rel="external">https://yourAppName.firebaseio.com/&amp;quot</a>;);<br><br>angular.module(‘app’, [‘firebase’])<br><br>//…other code here…//<br>[/js]<br></div>
+
+<p>Next, inject Firebase into the Angular module where your controller is located. The <strong>$firebaseArray</strong> variable below comes from the AngularFire module.</p>
+<div class="code"><br><br>#### controller.js<br><br>[js]<br>angular.module(‘app.controllers’, [‘firebase’])<br><br>.controller(‘AppCtrl’, function($scope,$firebaseArray) {<br><br>    $scope.uploadImage = function(imageData, incidentID) {<br>    var FR = new FileReader();<br><br>      FR.onload = function(e) {<br>        var imageString = e.target.result;<br><br>        //create URL that refers to a specific event and add images as an array-like object to hold images<br>        var eventReference = fb.child(&quot;events/&quot; + incidentID);<br>        var syncArray = $firebaseArray(eventReference.child(&quot;images&quot;));<br><br>        $scope.user = Auth.getUser();<br>        var username = $scope.user.username || ‘’;<br><br>        var submitDate = new Date().toISOString().slice(0, 10);<br><br>        syncArray.$add({<br>            imageString: imageString,<br>            username: username,<br>            submitDate: submitDate<br>        })<br>          .then(function() {<br>            console.log(&quot;Image has been uploaded&quot;);<br>          });<br>      };<br>      FR.readAsDataURL(imageData);<br>    });<br><br>[/js]<br></div>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cic6ot8ga0008fbpf4ef8u24e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
     
-    <header class="archive-article-header">
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/19/bookshelf-js-orm/">Bookshelf.js Javascript ORM and SQL</a>
-    </h1>
-  
-
-      
+    <a href="/2015/07/14/custom-mac-terminal-bash-colors/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/06/19/bookshelf-js-orm/">
-      <time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">Jun 19</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/09/expressjs-session-tutorial/">ExpressJS Session Tutorial</a>
-    </h1>
-  
-
-      
+          Terminal Bash Command Line &amp; Colors
         
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/06/09/expressjs-session-tutorial/">
-      <time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">Jun 9</time>
+      </div>
     </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
   
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/04/21/super-javascript-developer-tools/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/04/21/super-javascript-developer-tools/">Super JavaScript Developer Tools</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/04/21/super-javascript-developer-tools/">
-      <time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">Apr 21</time>
+    <a href="/2015/06/19/bookshelf-js-orm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bookshelf.js Javascript ORM and SQL</div>
     </a>
-  </div>
+  
+</nav>
 
-
-      
-    </header>
-  </div>
+  
 </article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2015/03/05/hello-world-1/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/03/05/hello-world-1/">Hello World!</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/03/05/hello-world-1/">
-      <time datetime="2015-03-06T03:36:23.000Z" itemprop="datePublished">Mar 5</time>
-    </a>
-  </div>
 
 
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  </section>
+</section>
       
         <aside id="sidebar">
   
