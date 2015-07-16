@@ -5,21 +5,21 @@
   
   <title>Terminal Bash Command Line &amp; Colors | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). 
-The default mostly-white wall of text can be hard on the eyes and actually kind of di">
+  <meta name="description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
+The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Terminal Bash Command Line & Colors">
 <meta property="og:url" content="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). 
-The default mostly-white wall of text can be hard on the eyes and actually kind of di">
+<meta property="og:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
+The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
 <meta property="og:image" content="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png">
-<meta property="og:image" content="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1-1200x374.png">
-<meta property="og:updated_time" content="2015-07-16T20:21:25.000Z">
+<meta property="og:image" content="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1.png">
+<meta property="og:updated_time" content="2015-07-16T21:10:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Terminal Bash Command Line & Colors">
-<meta name="twitter:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). 
-The default mostly-white wall of text can be hard on the eyes and actually kind of di">
+<meta name="twitter:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
+The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
   
   
     <link rel="icon" href="favicon.png">
@@ -131,6 +131,14 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
       <section id="main"><article id="post-custom-mac-terminal-bash-colors" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      
+	
+		<img src="https://www.google.com/images/srpr/chrome_ntp_white_logo2.png" class="article-banner">
+	
+
+
+
+    
     
     
       <header class="article-header">
@@ -162,8 +170,8 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting). </p>
-<p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs? </p>
+        <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).</p>
+<p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs?</p>
 <p>YES, so let’s make some changes that will increase producitivity and asthetics at the same time!</p>
 <h3 id="Customizing_Your_Terminal_Bash_Profile">Customizing Your Terminal Bash Profile</h3><p>First, you need to learn a little about bash. bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
 <p>The first step is to go to start Terminal, navigate to your home directory, and open .bash_profile in a text editor.</p>
@@ -175,13 +183,13 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
 <p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
 <div class="code"><br><br>#### .bash_profile<br><br>[bash]<br># High Intensty Colors<br>GREENH=’[&#92;&#48;33[0;92m]‘ # Green<br>BLUEH=’[&#92;&#48;33[0;94m]‘ # Blue<br><br>NC=’[&#92;&#48;33[0m]‘ # No color<br><br>#Git branch in prompt.<br>parse_git_branch() {<br>    git branch 2&gt; /dev/null | sed -e ‘/^[^<em>]/d’ -e ‘s/</em> (.*)/(\1)/‘<br>}<br><br>#custom bash prompt with colors<br>export PS1=&quot;\n${BLUEH}\w${GREENH}\$(parse_git_branch)${NC} &quot;<br><br>#CLICOLOR will turn colors on or off.<br>export CLICOLOR=1<br><br>#LS_COLORS is not required, and will let you customize the colors<br>export LSCOLORS=ExFxBxDxCxegedabagacad<br><br>[/bash]<br></div>
 
-<h3 id="Behold_The_Difference">Behold The Difference</h3><h4 id="Before">Before</h4><p><a href="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png" target="_blank" rel="external"><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png" alt="Screen Shot 2015-07-14 at 2.39.54 PM"></a></p>
-<h4 id="AFTER!!!!">AFTER!!!!</h4><p><a href="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1.png" target="_blank" rel="external"><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1-1200x374.png" alt="Screen Shot 2015-07-14 at 1.59.19 PM"></a></p>
+<h3 id="Behold_The_Difference">Behold The Difference</h3><h4 id="Before">Before</h4><p><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png" alt="Screen Shot 2015-07-14 at 2.39.54 PM"></p>
+<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1.png" alt="Screen Shot 2015-07-14 at 1.59.19 PM"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic6ovyb6000hgdpfdt50h9fy" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic6oyuc0000hi0pf3ha1k6nf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,8 +225,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
             <div class="item-thumbnail">
               <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
   
-    <span style="background-image:url(http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png
-)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
+    <span style="background-image:url(https://www.google.com/images/srpr/chrome_ntp_white_logo2.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
 </a>
             </div>
