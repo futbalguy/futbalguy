@@ -128,7 +128,7 @@
     
       
 	
-		<a href="/2015/07/14/custom-mac-terminal-bash-colors/" itemprop="url"><img src="https://www.google.com/images/srpr/chrome_ntp_white_logo2.png" class="article-banner"></a>
+		<a href="/2015/07/14/custom-mac-terminal-bash-colors/" itemprop="url"><img src="../../../../express.png" class="article-banner"></a>
 	
 
 
@@ -168,23 +168,20 @@
         <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).</p>
 <p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs?</p>
 <p>YES, so let’s make some changes that will increase producitivity and asthetics at the same time!</p>
-<h3 id="Customizing_Your_Terminal_Bash_Profile">Customizing Your Terminal Bash Profile</h3><p>First, you need to learn a little about bash. bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
+<h2 id="Customizing_Your_Terminal_Bash_Profile">Customizing Your Terminal Bash Profile</h2><p>First, you need to learn a little about bash. bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
 <p>The first step is to go to start Terminal, navigate to your home directory, and open .bash_profile in a text editor.</p>
-<div class="code"><br><br>#### terminal<br><br>[js]<br>//navigate to home directory and<br>//open .bash_profile in a text editor (i.e. sublime)<br>cd ~<br>sublime .bash_profile<br><br>[/js]<br></div>
-
+<h5 id="terminal">terminal</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//navigate to home directory and&#10;//open .bash_profile in a text editor (i.e. sublime)&#10;cd ~&#10;sublime .bash_profile</span><br></pre></td></tr></table></figure>
 <p>Second, you can customize the bash prompt to show full filepath, hide username, and show your current git branch name (if applicable). We also add a new line to seperate the prompt from the prior command.</p>
-<div class="code"><br><br>#### .bash_profile<br><br>[bash]<br><br>#Git branch in prompt.<br>parse_git_branch() {<br>    git branch 2&gt; /dev/null | sed -e ‘/^[^<em>]/d’ -e ‘s/</em> (.*)/(\1)/‘<br>}<br><br>#custom bash prompt<br>export PS1=&quot;\n\w\ $(parse_git_branch) &quot;<br><br>[/bash]<br></div>
-
+<h5 id="-bash_profile">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n\w\ $(parse_git_branch) &amp;quot;</span><br></pre></td></tr></table></figure>
 <p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
-<div class="code"><br><br>#### .bash_profile<br><br>[bash]<br># High Intensty Colors<br>GREENH=’[&#92;&#48;33[0;92m]‘ # Green<br>BLUEH=’[&#92;&#48;33[0;94m]‘ # Blue<br><br>NC=’[&#92;&#48;33[0m]‘ # No color<br><br>#Git branch in prompt.<br>parse_git_branch() {<br>    git branch 2&gt; /dev/null | sed -e ‘/^[^<em>]/d’ -e ‘s/</em> (.*)/(\1)/‘<br>}<br><br>#custom bash prompt with colors<br>export PS1=&quot;\n${BLUEH}\w${GREENH}\$(parse_git_branch)${NC} &quot;<br><br>#CLICOLOR will turn colors on or off.<br>export CLICOLOR=1<br><br>#LS_COLORS is not required, and will let you customize the colors<br>export LSCOLORS=ExFxBxDxCxegedabagacad<br><br>[/bash]<br></div>
-
-<h3 id="Behold_The_Difference">Behold The Difference</h3><h4 id="Before">Before</h4><p><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-2.39.54-PM.png" alt="Screen Shot 2015-07-14 at 2.39.54 PM"></p>
-<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="http://www.technikyle.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-1.59.19-PM1.png" alt="Screen Shot 2015-07-14 at 1.59.19 PM"></p>
+<h4 id="-bash_profile-1">.bash_profile</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># High Intensty Colors</span></span><br><span class="line">GREENH=<span class="string">'\[&amp;#92;&amp;#48;33[0;92m\]'</span> <span class="comment"># Green</span></span><br><span class="line">BLUEH=<span class="string">'\[&amp;#92;&amp;#48;33[0;94m\]'</span> <span class="comment"># Blue</span></span><br><span class="line"></span><br><span class="line">NC=<span class="string">'\[&amp;#92;&amp;#48;33[0m\]'</span> <span class="comment"># No color</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt with colors</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n<span class="variable">$&#123;BLUEH&#125;</span>\w<span class="variable">$&#123;GREENH&#125;</span>\$(parse_git_branch)<span class="variable">$&#123;NC&#125;</span> &amp;quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">#CLICOLOR will turn colors on or off.</span></span><br><span class="line"><span class="built_in">export</span> CLICOLOR=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#LS_COLORS is not required, and will let you customize the colors</span></span><br><span class="line"><span class="built_in">export</span> LSCOLORS=ExFxBxDxCxegedabagacad</span><br></pre></td></tr></table></figure>
+<h2 id="Behold_The_Difference">Behold The Difference</h2><h4 id="Before">Before</h4><p><img src="/ScreenShotBefore.png" alt=""></p>
+<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="/ScreenShotBefore.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic6oyuc0000hi0pf3ha1k6nf" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic6qzecn000hw0pfdw3925tk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -259,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cic6oyubs0008i0pfd2w3jc94" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cic6qzecf0008w0pfiif44460" class="article-share-link">Share</a>
       
       
     </footer>
@@ -340,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/19/bookshelf-js-orm/" data-id="cic6oyuc3000ji0pfcyn6hfmi" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/19/bookshelf-js-orm/" data-id="cic6qzecu000jw0pfc1lebndq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -427,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cic6oyuby000di0pf8klw5ao7" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cic6qzeck000dw0pfk9f1hzk2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -543,7 +540,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/04/21/super-javascript-developer-tools/" data-id="cic6oyubb0001i0pftajhdpmd" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/04/21/super-javascript-developer-tools/" data-id="cic6qzec80001w0pfeedo0cux" class="article-share-link">Share</a>
       
       
     </footer>
@@ -593,7 +590,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/03/05/hello-world-1/" data-id="cic6oyubu000bi0pfg8pl24xt" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/03/05/hello-world-1/" data-id="cic6qzeci000bw0pfb3jmmhoi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -618,7 +615,7 @@
             <div class="item-thumbnail">
               <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
   
-    <span style="background-image:url(https://www.google.com/images/srpr/chrome_ntp_white_logo2.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
+    <span style="background-image:url(/../../../../express.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
 </a>
             </div>
