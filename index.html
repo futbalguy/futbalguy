@@ -175,13 +175,13 @@
 <h5 id="-bash_profile">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n\w\ $(parse_git_branch) &amp;quot;</span><br></pre></td></tr></table></figure>
 <p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
 <h4 id="-bash_profile-1">.bash_profile</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># High Intensty Colors</span></span><br><span class="line">GREENH=<span class="string">'\[&amp;#92;&amp;#48;33[0;92m\]'</span> <span class="comment"># Green</span></span><br><span class="line">BLUEH=<span class="string">'\[&amp;#92;&amp;#48;33[0;94m\]'</span> <span class="comment"># Blue</span></span><br><span class="line"></span><br><span class="line">NC=<span class="string">'\[&amp;#92;&amp;#48;33[0m\]'</span> <span class="comment"># No color</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt with colors</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n<span class="variable">$&#123;BLUEH&#125;</span>\w<span class="variable">$&#123;GREENH&#125;</span>\$(parse_git_branch)<span class="variable">$&#123;NC&#125;</span> &amp;quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">#CLICOLOR will turn colors on or off.</span></span><br><span class="line"><span class="built_in">export</span> CLICOLOR=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#LS_COLORS is not required, and will let you customize the colors</span></span><br><span class="line"><span class="built_in">export</span> LSCOLORS=ExFxBxDxCxegedabagacad</span><br></pre></td></tr></table></figure>
-<h2 id="Behold_The_Difference">Behold The Difference</h2><h4 id="Before">Before</h4><p><img src="/ScreenShotBefore.png" alt=""></p>
-<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="/ScreenShotBefore.png" alt=""></p>
+<h2 id="Behold_The_Difference">Behold The Difference</h2><h4 id="Before">Before</h4><p><img src="ScreenShotBefore.png" alt=""></p>
+<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="ScreenShotBefore.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic6qzecn000hw0pfdw3925tk" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic76w0hs000h7tpfs6ff2ub4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cic6qzecf0008w0pfiif44460" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cic76w0hl00087tpf0y5znupj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -337,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/19/bookshelf-js-orm/" data-id="cic6qzecu000jw0pfc1lebndq" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/19/bookshelf-js-orm/" data-id="cic76w0ia000j7tpfo399xaeu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -424,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cic6qzeck000dw0pfk9f1hzk2" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cic76w0ho000d7tpfazui8nmd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -540,7 +540,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/04/21/super-javascript-developer-tools/" data-id="cic6qzec80001w0pfeedo0cux" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/04/21/super-javascript-developer-tools/" data-id="cic76w0hc00017tpf8m6kf8z4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -590,7 +590,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/03/05/hello-world-1/" data-id="cic6qzeci000bw0pfb3jmmhoi" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/03/05/hello-world-1/" data-id="cic76w0hn000b7tpfjtq34jhq" class="article-share-link">Share</a>
       
       
     </footer>
