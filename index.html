@@ -96,8 +96,8 @@
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        0
-        <span>tag</span>
+        2
+        <span>tags</span>
       </div>
     </div>
     
@@ -128,7 +128,7 @@
     
       
 	
-		<a href="/2015/07/14/custom-mac-terminal-bash-colors/" itemprop="url"><img src="../../../../express.png" class="article-banner"></a>
+		<a href="/2015/07/14/custom-mac-terminal-bash-colors/" itemprop="url"><img src="ScreenShotAfter.png" class="article-banner"></a>
 	
 
 
@@ -157,7 +157,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a>
   </div>
 
         </div>
@@ -168,22 +168,19 @@
         <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).</p>
 <p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs?</p>
 <p>YES, so let’s make some changes that will increase producitivity and asthetics at the same time!</p>
-<h2 id="Customizing_Your_Terminal_Bash_Profile">Customizing Your Terminal Bash Profile</h2><p>First, you need to learn a little about bash. bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
-<p>The first step is to go to start Terminal, navigate to your home directory, and open .bash_profile in a text editor.</p>
-<h5 id="terminal">terminal</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//navigate to home directory and&#10;//open .bash_profile in a text editor (i.e. sublime)&#10;cd ~&#10;sublime .bash_profile</span><br></pre></td></tr></table></figure>
-<p>Second, you can customize the bash prompt to show full filepath, hide username, and show your current git branch name (if applicable). We also add a new line to seperate the prompt from the prior command.</p>
-<h5 id="-bash_profile">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n\w\ $(parse_git_branch) &amp;quot;</span><br></pre></td></tr></table></figure>
-<p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
-<h4 id="-bash_profile-1">.bash_profile</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># High Intensty Colors</span></span><br><span class="line">GREENH=<span class="string">'\[&amp;#92;&amp;#48;33[0;92m\]'</span> <span class="comment"># Green</span></span><br><span class="line">BLUEH=<span class="string">'\[&amp;#92;&amp;#48;33[0;94m\]'</span> <span class="comment"># Blue</span></span><br><span class="line"></span><br><span class="line">NC=<span class="string">'\[&amp;#92;&amp;#48;33[0m\]'</span> <span class="comment"># No color</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt with colors</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n<span class="variable">$&#123;BLUEH&#125;</span>\w<span class="variable">$&#123;GREENH&#125;</span>\$(parse_git_branch)<span class="variable">$&#123;NC&#125;</span> &amp;quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">#CLICOLOR will turn colors on or off.</span></span><br><span class="line"><span class="built_in">export</span> CLICOLOR=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#LS_COLORS is not required, and will let you customize the colors</span></span><br><span class="line"><span class="built_in">export</span> LSCOLORS=ExFxBxDxCxegedabagacad</span><br></pre></td></tr></table></figure>
-<h2 id="Behold_The_Difference">Behold The Difference</h2><h4 id="Before">Before</h4><p><img src="ScreenShotBefore.png" alt=""></p>
-<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="ScreenShotBefore.png" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/07/14/custom-mac-terminal-bash-colors/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cic76w0hs000h7tpfs6ff2ub4" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="ciccxvgeb000ligpfewgsqgl4" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
+
     </footer>
   </div>
   
@@ -218,7 +215,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
   </div>
 
         </div>
@@ -226,39 +223,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase. </p>
+        <p>I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.</p>
 <p>We picked Firebase to offload storage and data transfer work from our own server. We also just wanted to check out Firebase after hearing so many good things about its ease of use!</p>
-<p>Getting started with Firebase is very fast and straight-forward! Go to <a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a> and add a new account. They will provide you with a database for storing your information.</p>
-<h4 id="Our_Stack">Our Stack</h4><ul>
-<li><a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a></li>
-<li><a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a></li>
-</ul>
-<h3 id="Firebase_Basics">Firebase Basics</h3><p>All Firebase database data is stored as JSON objects. When you add data to the JSON tree, it becomes a key in the existing JSON structure.</p>
-<p>However, <strong>Firebase databases have no native support for arrays</strong>. If we try to store an array, it really gets stored as an “object” with integers as the key names.</p>
-<p>You access the database with a URL and command it to do what you need. For example, if you want to save images from event #3, you could use the following URL path:<br><em><a href="https://yourAppName.firebaseio.com/events/3/images" target="_blank" rel="external">https://yourAppName.firebaseio.com/events/3/images</a></em></p>
-<h3 id="Interacting_With_Firebase">Interacting With Firebase</h3><p>There are several options for interacting with Firebase:</p>
-<ol>
-<li>Firebase website</li>
-<li>RESTful API</li>
-<li>Firebase and AngularFire modules for Angular</li>
-</ol>
-<p>We chose Option 3 - Firebase and AngularFire modules - because it is the most Javascript-friendly. </p>
-<p><strong>PRO TIP:</strong> Image files for Firebase need to be in a string format (and must be under 10mb)! You’ll want to get the base64-encoded contents so you can store it as a string. The general approach is to convert the file locally (using FileReader). </p>
-<p>Now let’s see how it works in practice…</p>
-<h3 id="Javascript_and_Firebase">Javascript and Firebase</h3><p>First step: install bower dependency manager and the bower components for Firebase and AngularFire</p>
-<div class="code"><br><br>#### terminal<br><br>[code]<br>bower init<br>bower install firebase —save<br>bower install angularfire —save<br><br>[/code]<br></div>
-
-<p>Now instantiate a Firebase object with the URL path for your app and inject the firebase module into your app.</p>
-<div class="code"><br><br>#### app.js<br><br>[js]<br>var fb = new Firebase(&quot;<a href="https://yourAppName.firebaseio.com/&amp;quot" target="_blank" rel="external">https://yourAppName.firebaseio.com/&amp;quot</a>;);<br><br>angular.module(‘app’, [‘firebase’])<br><br>//…other code here…//<br>[/js]<br></div>
-
-<p>Next, inject Firebase into the Angular module where your controller is located. The <strong>$firebaseArray</strong> variable below comes from the AngularFire module.</p>
-<div class="code"><br><br>#### controller.js<br><br>[js]<br>angular.module(‘app.controllers’, [‘firebase’])<br><br>.controller(‘AppCtrl’, function($scope,$firebaseArray) {<br><br>    $scope.uploadImage = function(imageData, incidentID) {<br>    var FR = new FileReader();<br><br>      FR.onload = function(e) {<br>        var imageString = e.target.result;<br><br>        //create URL that refers to a specific event and add images as an array-like object to hold images<br>        var eventReference = fb.child(&quot;events/&quot; + incidentID);<br>        var syncArray = $firebaseArray(eventReference.child(&quot;images&quot;));<br><br>        $scope.user = Auth.getUser();<br>        var username = $scope.user.username || ‘’;<br><br>        var submitDate = new Date().toISOString().slice(0, 10);<br><br>        syncArray.$add({<br>            imageString: imageString,<br>            username: username,<br>            submitDate: submitDate<br>        })<br>          .then(function() {<br>            console.log(&quot;Image has been uploaded&quot;);<br>          });<br>      };<br>      FR.readAsDataURL(imageData);<br>    });<br><br>[/js]<br></div>
+<p>Getting started with Firebase is very fast and straight-forward! Go to <a href="https://www.firebase.com/">Firebase</a> and add a new account. They will provide you with a database for storing your information.</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/07/02/storing-images-in-firebase/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cic76w0hl00087tpf0y5znupj" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="ciccxvgcw000aigpfz28oujnp" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
+
     </footer>
   </div>
   
@@ -293,7 +273,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
   </div>
 
         </div>
@@ -302,44 +282,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>On my current Hack Reactor project, we designed a product that needed a SQL database.</p>
-<p>Instead of writing SQL queries, we chose to interface with MySQL through a developer-friendly framework named Bookshelf.js. Bookshelf is an object-relational mapping (ORM) framework that allows you to use object-oriented language to access a relational database. </p>
-<h4 id="Back-End_Setup">Back-End Setup</h4><ul>
-<li><a href="https://nodejs.org/" target="_blank" rel="external">NodeJS</a></li>
-<li><a href="http://expressjs.com/" target="_blank" rel="external">ExpressJS</a></li>
-<li><a href="http://bookshelfjs.org/" target="_blank" rel="external">BookshelfJS</a></li>
-<li><a href="https://www.mysql.com/" target="_blank" rel="external">MySQL</a></li>
-</ul>
-<h3 id="Building_Your_Bookshelf">Building Your Bookshelf</h3><p>Installing bookshelf is simple, just use <a href="https://www.npmjs.com/" target="_blank" rel="external">NPM</a> as a dependency manager!</p>
-<div class="code"><br><br>#### terminal<br><br>[code]<br>npm init<br>npm install bookshelf —save<br>npm install knex —save<br><br>[/code]<br></div>
-
-<p>Next, you need to require Bookshelf in your app. We chose to do it in our main server file App.js</p>
-<div class="code"><br><br>#### app.js<br><br>[js]<br>var express = require(‘bookshelf’);<br>var app = express();<br><br>[/js]<br></div>
-
-<p>You also need to configure the SQL database table schemas for Bookshelf to interface with. Bookshelf interacts with SQL through KnexJS so see the <a href="http://knexjs.org/" target="_blank" rel="external">Knex documentation</a> for more specifics of schema setup.</p>
-<div class="code"><br><br>#### db-config.js<br><br>[js]<br>var knex = require(‘knex’)({<br>  client: ‘mysql’,<br>  connection: {<br>    host: ‘127.0.0.1’,<br>    user: ‘root’,<br>    database: ‘database’<br>  }<br>});<br><br>var db = require(‘bookshelf’)(knex);<br><br>db.knex.schema.hasTable(‘users’).then(function(exists) {<br>  if (!exists) {<br>    db.knex.schema.createTable(‘users’, function(table) {<br>      table.increments(‘id’).primary();<br>      table.string(‘username’, 100);<br>      table.string(‘password’, 100);<br>      table.string(‘address’, 255);<br>    }).then(function(table) {<br>      console.log(‘created table :’, ‘users’);<br>    })<br>  }<br>});<br><br>db.knex.schema.hasTable(‘events’).then(function(exists) {<br>  if (!exists) {<br>    db.knex.schema.createTable(‘events’, function(table) {<br>      table.increments(‘id’).primary();<br>      table.string(‘user_id’, 100);<br>      table.string(‘name’, 255);<br>      table.string(‘description’, 255);<br>      table.string(‘venue’, 255);<br>      table.dateTime(‘date’);<br>      table.string(‘address’, 255);<br>    }).then(function(table) {<br>      console.log(‘created table :’, ‘events’);<br>    })<br>  }<br>});<br><br>//this is for the followers many-to-many join table<br>db.knex.schema.hasTable(‘followers’).then(function(exists) {<br>  if (!exists) {<br>    db.knex.schema.createTable(‘followers’, function(table) {<br>      table.increments(‘id’).primary();<br>      table.integer(‘follower_id’);<br>      table.integer(‘followed_id’);<br>    }).then(function(table) {<br>      console.log(‘created table :’, ‘followers’);<br>    })<br>  }<br>});<br>[/js]<br></div>
-
-<h3 id="Arranging_Your_Bookshelf">Arranging Your Bookshelf</h3><p>We are ready to define our Bookshelf models that we will use to save and retrieve Users and Events. </p>
-<div class="code"><br><br>#### User.js<br><br>[js]<br>var db = require(‘../db-config’);<br><br>var User = db.Model.extend({<br>  tableName: ‘users’,<br>  hasTimestamps: false,<br><br>  //define the relationship that each user can have many events<br>  events: function() {<br>    //invoking require at runtime so we avoid circular dependency on Event<br>    var Event = require(‘./event’);<br>    return this.hasMany(Event);<br>  },<br><br>  //define the relationship that this user follows other users through the followers table<br>  follows: function() {<br>    return this.belongsToMany(User,’followers’, ‘follower_id’, ‘followed_id’);<br>  },<br><br>  //define the relationship that other users follows this user through the followers table<br>  followers: function() {<br>    return this.belongsToMany(User,’followers’, ‘followed_id’, ‘follower_id’);<br>  },<br><br>});<br><br>module.exports = User;<br>[/js]<br></div>
-
-<div class="code"><br><br>#### Users.js<br><br>[js]<br>var db = require(‘../db-config’);<br>var User = require(‘../models/user’);<br><br>var Users = new db.Collection();<br>Users.model = User;<br><br>module.exports = Users;<br>[/js]<br></div>
-
-<div class="code"><br><br>#### Follower.js<br><br>[js]<br>var db = require(‘../db-config’);<br><br>//this is for our join table of users following users<br>var Follower = db.Model.extend({<br>  tableName: ‘followers’,<br>  hasTimestamps: false<br>});<br><br>module.exports = Follower;<br>[/js]<br></div>
-
-<div class="code"><br><br>#### Event.js<br><br>[js]<br>var db = require(‘../db-config’);<br><br>var Event = db.Model.extend({<br>  tableName: ‘events’,<br>  hasTimestamps: false,<br><br>  //define the relationship that each event belongs to one user<br>  user: function() {<br>    //invoking require at runtime so we avoid circular dependency on User<br>    var User = require(‘./user’);<br>    return this.belongsTo(User, ‘user_id’);<br>  }<br>});<br><br>module.exports = Event;<br>[/js]<br></div>
-
-<div class="code"><br><br>#### Events.js<br><br>[js]<br>var db = require(‘../db-config’);<br>var Event = require(‘../models/event’);<br><br>var Events = new db.Collection();<br>Events.model = Event;<br><br>module.exports = Events;<br>[/js]<br></div>
-
-<h3 id="Using_Your_Bookshelf">Using Your Bookshelf</h3><p>Now it’s time to use your bookshelf models to store and retrieve data from your database. </p>
-<p>See the code below for examples of storing and retrieving User and Event data.</p>
-<div class="code"><br><br>#### UserUtils.js<br><br>[js]<br>var db = require(‘../db-config’);<br>var Users = require(‘../collections/users’);<br>var User = require(‘../models/user’);<br>var Follower = require(‘../models/follower’);<br><br>module.exports = {<br><br>  //get all users from DB<br>  retrieveAllUsers: function(callback) {<br>    Users.reset().fetch().then(function(users) {<br>        callback(null, users.models)<br>    })<br>  },<br><br>  //get a user from DB by ID<br>  retrieveUser: function(user_id, callback) {<br>    user_id = parseInt(user_id);<br><br>    new User({<br>        id: user_id<br>      }).fetch({<br>        //here we list the related data we want to include,<br>        //the strings in the array match the method names in the User model<br>        withRelated: [‘events’, ‘follows’, ‘followers’],<br>        require: true<br>      }).then(function(found) {<br>        if (found) {<br>          var userWithJoins = found.attributes;<br>          //add the related data to the oject that will be returned in the callback<br>          userWithJoins.events = found.relations.events;<br>          userWithJoins.follows = found.relations.follows;<br>          userWithJoins.followers = found.relations.followers;<br><br>          callback(null, userWithJoins);<br>        } else {<br>          console.log(‘user_id not found:’ + user_id);<br>        }<br>      })<br>  },<br><br>  //store a new user in DB<br>  storeUser: function(user, callback) {<br>    new User(user).fetch().then(function(found) {<br>        if (found) {<br>          callback(null, found.attributes);<br>          console.log(‘user already found:’, username);<br>        } else {<br>          var user = new User(user);<br>          user.save().then(function(newUser) {<br>              Users.add(newUser);<br>              callback(null, newUser);<br>            })<br>        }<br>      })<br>  },<br><br>  //add a following relationship to the followers join table<br>  storeFollowing: function(follower_id, followed_id, callback) {<br>    follower_id = parseInt(follower_id);<br>    followed_id = parseInt(followed_id);<br><br>    new Follower({<br>      follower_id:follower_id,<br>      followed_id:followed_id<br>    })<br>    .fetch().then(function(found) {<br>      if (found) {<br>        callback(null, found.attributes);<br>        console.log(‘user_id: ‘,follower_id, ‘ is already following user_id: ‘,followed_id);<br>      } else {<br><br>        new Follower({follower_id:follower_id,followed_id:followed_id})<br>        .save().then(function(relationship) {<br>            callback(null, relationship.attributes);<br>          })<br>      }<br>    });<br>  },<br><br>  //remove a following relationship from the followers join table<br>  removeFollowing: function(follower_id, unFollowing_id, callback) {<br>    follower_id = parseInt(follower_id);<br>    followed_id = parseInt(unFollowing_id);<br><br>    new Follower({<br>      follower_id:follower_id,<br>      followed_id:followed_id<br>    }).fetch().then(function(found){<br>      if (found) {<br>        found.destroy();<br>        callback(null, null);<br>      }<br>    })<br>  },<br>};<br>[/js]<br></div>
-
-<div class="code"><br><br>#### EventUtils.js<br><br>[js]<br>var db = require(‘../db-config’);<br>var Events = require(‘../collections/events’);<br>var Event = require(‘../models/event’);<br><br>module.exports = {<br><br>  //get all events from DB<br>  retrieveAllEvents: function(callback) {<br>    Events.reset().fetch().then(function(events) {<br>      callback(null,events);<br>    })<br>  },<br><br>  //get one events from DB by ID<br>  retrieveEvent: function(eventID,callback) {<br>    new Event({<br>      id: eventID<br>    }).fetch({<br>    //here we list the related data we want to include,<br>    //the string in the array matches the method names in the User model<br>      withRelated:[‘user’],<br>      require: true<br>    }).then(function(found) {<br>      if (found) {<br>        callback(null,found.attributes);<br>      } else {<br>        console.log(‘event not found:’ + eventName);<br>      }<br>    })<br>  },<br><br>  //set new event to DB<br>  storeEvent: function(event,callback) {<br><br>    new Event({name:event.name}).fetch().then(function(found) {<br>      if (found) {<br>        console.log(‘event already found: ‘,found.attributes);<br>        callback(null,found.attributes);<br>      } else {<br><br>        new Event(event).save().then(function(newEvent) {<br>          console.log(‘saved event: ‘,newEvent);<br>          Events.add(newEvent);<br>          callback(null,newEvent);<br>        })<br>      }<br>    })<br>  }<br>};<br>[/js]<br></div>
+<p>Instead of writing SQL queries, we chose to interface with MySQL through a developer-friendly framework named Bookshelf.js. Bookshelf is an object-relational mapping (ORM) framework that allows you to use object-oriented language to access a relational database.</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/06/19/bookshelf-js-orm/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/19/bookshelf-js-orm/" data-id="cic76w0ia000j7tpfo399xaeu" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/19/bookshelf-js-orm/" data-id="ciccxvgfd000pigpfpm41a775" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
+
     </footer>
   </div>
   
@@ -350,6 +306,14 @@
     
       <article id="post-expressjs-session-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      
+	
+		<a href="/2015/06/09/expressjs-session-tutorial/" itemprop="url"><img src="express.png" class="article-banner"></a>
+	
+
+
+
     
     
     
@@ -374,7 +338,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/Software-Development/">Software Development</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
   </div>
 
         </div>
@@ -383,50 +347,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to save user state.</p>
-<h4 id="Back-End_Setup">Back-End Setup</h4><ul>
-<li><a href="#">NodeJS</a></li>
-<li><a href="#">ExpressJS web framework</a></li>
-<li>Express - Middleware</li>
-</ul>
-<h3 id="Creating_the_Express_App">Creating the Express App</h3><p>Creating an Express app is simple and quick! Simply require Express and our middleware (after installing through NPM).</p>
-<h4 id="terminal">terminal</h4><p>[code]<br>npm init<br>npm install express —save<br>npm install cookie-parser —save<br>npm install express-session —save</p>
-<p>[/code]</p>
-<h4 id="app-js">app.js</h4><p>[js]</p>
-<p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
-<p>var app = express();</p>
-<p>[/js]</p>
-<h3 id="Express_Sessions">Express Sessions</h3><p>When a client connects to the server, the Express-Session middleware automatically adds a session object to the request. You can add any informaton you want to remember to the session object and save it on the server-side. A cookie with an identifier token is saved on the client side.</p>
-<p>Here we apply the middleware to the app:</p>
-<h4 id="app-js-1">app.js</h4><p>[js]</p>
-<p>//cookie parser is required for sessions to appear<br>app.use(cookieParser());</p>
-<p>//session instantiation has some required arguments,<br>//the Session documentation is pretty clear<br>app.use(session({<br>  secret: ‘boo’,<br>  resave: false,<br>  saveUninitialized: false<br>}));</p>
-<p>[/js]</p>
-<p>When the client connects in the future, the server can restore the session that corrsponds to the cookie identifier.</p>
-<p>To check authentication and enforce access restrictions, we created a custom middleware function that determines if a users cookie identifier matches a stored session on the server.</p>
-<p>(In this example, we are using the session memory store included with Express-Session to save and load prior sessions. This memory store is deleted everytime the server stops so you will need to save to a more stable storage (i.e. database) for production code.)</p>
-<h4 id="app-js-2">app.js</h4><p>[js]</p>
-<p>//check for session.user, if not found then redirect user to login<br>function restrict(req, res, next) {<br>  if (req.session.user) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
-<p>[/js]</p>
-<h3 id="Putting_It_All_Together">Putting It All Together</h3><p>Here is the final code for our tutorial server. The server will remember a user who previously logged in and save them the hastle of logging in again! </p>
-<h4 id="app-js-3">app.js</h4><p>[js]</p>
-<p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
-<p>var app = express();</p>
-<p>//cookie parser is required for sessions to appear<br>app.use(cookieParser());</p>
-<p>//session instantiation has some required arguments,<br>//the Session documentation is pretty clear<br>app.use(session({<br>  secret: ‘boo’,<br>  resave: false,<br>  saveUninitialized: false<br>}));</p>
-<p>function restrict(req, res, next) {<br>  //allow users with an active session as well as login page access<br>  if (req.session.user || req.url === ‘/login’) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
-<p>app.use(restrict);</p>
-<p>app.post(‘/login’, function(req, res) {<br>    if (/<em>login is valid</em>/) {<br>        req.session.user = {};<br>        req.session.save();<br>        res.redirect(‘/‘);<br>    } else {<br>        res.send(/<em>loginPageData</em>/)<br>    }<br>});</p>
-<p>app.get(‘/login’, function(req, res) {<br>     res.send(/<em>loginPageData</em>/)<br>});</p>
-<p>//client will only be routed to paths below if they were authenticated<br>app.get(‘/‘, function(req, res) {<br>     res.send(‘You are a real user if you can see this!’’)<br>});</p>
-<p>console.log(‘Listening on 8080’);<br>app.listen(808);</p>
-<p>[/js]</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/06/09/expressjs-session-tutorial/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cic76w0ho000d7tpfazui8nmd" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="ciccxvgde000gigpf35kkj9yz" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
+
     </footer>
   </div>
   
@@ -461,7 +394,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/Software-Development/">Software Development</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
   </div>
 
         </div>
@@ -477,72 +410,20 @@
 <li><a href="#HTMLPrettify">HTML/CSS/JS Prettify</a></li>
 <li><a href="#SublimeJSBuild">Sublime JS Build Console</a></li>
 <li><a href="#Slate">Slate</a></li>
-<li><a href="#DarkMode">Embrace Dark Mode!!!</a><br><span style="color: #999999;">(Note: I learned a lot trying out different software so I suggest playing around)</span></li>
-</ol>
-<p>[showhide type=”post1” more_text=”Reveal JS vs iOS Comparison” less_text=”Hide JS vs iOS Comparison”]</p>
-<p>For iOS apps, I could write code, debug, and run an app within Xcode. Xcode has its flaws, but it is straightforward and it’s nice not having to switch applications often.</p>
-<p>In comparison, JS devs write code in text editors (with helpful plug-ins), debug and test in the browser, run version control and file management in the terminal, and even more! You need to be smart about how you manage your developer environment.</p>
-<p>[/showhide]</p>
-<h3 id="1-_Sublime_Text">1. Sublime Text<a id="Sublime" class="anchor"></a></h3><p><a href="http://www.sublimetext.com" target="_blank" rel="external">Sublime Text</a> is my most used app and appears to be the most popular text editor for JS devs.</p>
-<p>Why is Sublime Text popular? It has developer-friendly features like syntax highlighting and code completion. In addition, a huge library of plugins (a.k.a. packages) let you customize and add functionality!</p>
-<p><strong>SUPER TIP</strong>: Install Version 3. <a href="http://www.sublimetext.com/blog/articles/sublime-text-3-build-3080" target="_blank" rel="external">This beta is actually recommended for daily use by the Sublime Text team.</a> It has worked great for me.</p>
-<h3 id="2-_SublimeLinter_+_JSHint">2. SublimeLinter + JSHint<a id="SublimeLinter" class="anchor"></a></h3><p><a href="http://www.sublimelinter.com/" target="_blank" rel="external">SublimeLinter</a> is a must-have for efficient coding!</p>
-<p>A linter checks your code for stylistic or programming errors <em>while you type</em>. No more surprise errors for missing parenthesis/brackets!</p>
-<p><strong>SUPER TIP</strong>: Follow <a href="https://github.com/SublimeLinter/SublimeLinter-jshint" target="_blank" rel="external">SublimeLinter + JSHint installation instructions here.</a> It’s not as simple to install as other packages.</p>
-<h3 id="3-_HTML/CSS/JS_Prettify">3. HTML/CSS/JS Prettify<a id="HTMLPrettify" class="anchor"></a></h3><p>Pretty code is readable code. Readable code improves developer productivity.</p>
-<p>Install the <a href="https://github.com/victorporof/Sublime-HTMLPrettify" target="_blank" rel="external">HTML/CSS/JS Prettify</a> in Sublime Text to prettify your code with a simple key press (Shift+CMD+H by default).</p>
-<p><strong>SUPER TIP</strong>: By default, prettified CSS code moves each HTML selector to a new line. This looks horrible. Therefore, I suggest you update the following code in <em>Sublime Text &gt; Preferences &gt; Package Settings &gt; HTML/CSS/JS Prettify &gt; Set Prettify Preferences</em>:</p>
-<p>[code]<br>&quot;css&quot;: {<br>    …<br>    &quot;selector_separator_newline&quot;: false //<br> }<br>[/code]</p>
-<h3 id="4-_Sublime_JavaScript_Console">4. Sublime JavaScript Console<a id="SublimeJSBuild" class="anchor"></a></h3><p>Tired of switching to the browser to run every bit of code? That’s because you’re lazy…</p>
-<p>JK…just install Sublime JS Build Console by <a href="http://www.wikihow.com/Create-a-Javascript-Console-in-Sublime-Text" target="_blank" rel="external">following Method 2</a>. Now you just press CMD+B to run your code in Sublime Text.</p>
-<p><strong>SUPER TIP</strong>: Step 3 in the installation instructions above gave code for ‘Node.sublime-build’ that did not work for me. It didn’t point to Node.JS correctly. Here is the code I used to get it to work:</p>
-<p>[code]<br>{<br>    &quot;cmd&quot;: [&quot;/usr/local/bin/node&quot;, &quot;$file&quot;],<br>    &quot;selector&quot;: &quot;source.js&quot;<br>}<br>[/code]</p>
-<h3 id="5-_Slate">5. Slate<a id="Slate" class="anchor"></a></h3><p>Switching between application windows can be very inefficient…if your doing it wrong.</p>
-<p>The right way is by using smart window management software like <a href="https://github.com/jigish/slate" target="_blank" rel="external">Slate</a>. </p>
-<p>Slate lets use you use keyboard shortcuts to move, switch, and show/hide windows. A major plus is the high level of customization offered.</p>
-<p>Here is a sample of they keyboard shortcuts I use:</p>
-<ul>
-<li>CMD+1: Split-screen Google Chrome &amp; Sublime Text</li>
-<li>CMD+2: Split-screen Google Chrome &amp; Terminal</li>
-<li>CMD+Shift+Up/Down/Left/Right: Move window to half of screen width/height</li>
-<li>CMD+Option+Up/Down/Left/Right: Focus window in direction<br>[showhide type=”post2” more_text=”Reveal My Slate Configuration” less_text=”Hide My Slate Configuration”]</li>
-</ul>
-<p>This is my Slate configuration file. Filepath should be ‘~/.slate’</p>
-<p>[code]<br>config defaultToCurrentScreen true<br>config nudgePercentOf screenSize<br>config resizePercentOf screenSize</p>
-<h1 id="Shows_app_icons_and_background_apps,_spreads_icons_in_the_same_place-">Shows app icons and background apps, spreads icons in the same place.</h1><p>config windowHintsShowIcons true<br>config windowHintsIgnoreHiddenWindows false<br>config windowHintsSpread true</p>
-<p>config layoutFocusOnActivate true</p>
-<h1 id="Relaunch_slate">Relaunch slate</h1><p>bind esc:cmd relaunch</p>
-<h1 id="Alias">Alias</h1><p>alias lefthalf push left bar-resize:screenSizeX/2<br>alias righthalf push right bar-resize:screenSizeX/2<br>alias tophalf push up bar-resize:screenSizeY/2<br>alias bottomhalf push down bar-resize:screenSizeY/2<br>alias fullscreen push up bar-resize:screenSizeY</p>
-<h1 id="Push_Bindings">Push Bindings</h1><p>bind right:ctrl;cmd  ${righthalf}<br>bind left:ctrl;cmd   ${lefthalf}<br>bind up:ctrl;cmd     chain ${tophalf} | ${fullscreen}<br>bind down:ctrl;cmd   ${bottomhalf}</p>
-<h1 id="Focus_Bindings">Focus Bindings</h1><p>bind right:cmd,alt    focus right<br>bind left:cmd,alt      focus left<br>bind up:cmd,alt        focus up<br>bind down:cmd,alt      focus down</p>
-<h1 id="bind_up:cmd_focus_behind">bind up:cmd   focus behind</h1><h1 id="bind_down:cmd_focus_behind">bind down:cmd focus behind</h1><h1 id="Layout’s_directive_-_layout_name_‘app_name’:OPTIONS_operations">Layout’s directive - layout name ‘app name’:OPTIONS operations</h1><p>layout javascriptLayout ‘Google Chrome’:REPEAT ${lefthalf}<br>layout javascriptLayout ‘Sublime Text’:REPEAT ${righthalf}</p>
-<p>layout mailLayout ‘Mail’:REPEAT ${fullscreen}</p>
-<p>layout spotifyLayout ‘Spotify’:REPEAT ${fullscreen}</p>
-<p>layout iTermLayout ‘Google Chrome’:REPEAT ${lefthalf}<br>layout iTermLayout ‘iTerm’:REPEAT ${righthalf}</p>
-<h1 id="Layout_Bindings">Layout Bindings</h1><p>bind 1:cmd layout javascriptLayout<br>bind 2:cmd layout iTermLayout<br>bind 3:cmd layout mailLayout<br>bind 4:cmd layout spotifyLayout<br>[/code]</p>
-<p>[/showhide]</p>
-<h3 id="6-_Embrace_Dark_Mode!!!">6. Embrace Dark Mode!!!<a id="DarkMode" class="anchor"></a></h3><p>I never “got” dark mode UNTIL I started spending long days staring at text.</p>
-<p>Here are some dark mode tweaks I recommend:</p>
-<p><ul><br>    <li>Sublime Text</li></ul></p>
-<ul>
-<li><p>Install <a href="https://github.com/buymeasoda/soda-theme" target="_blank" rel="external">Soda Dark theme</a>. Note: this goes further than a normal dark color scheme.</p>
-</li><li>Mac OS X</li>
-
-<li><p>Select dark menu bar: <em>Preferences &gt; General &gt; Use dark menu bar and Dock</em> and then…</p>
-</li>
-<li><p>Choose matching dark wallpaper - <a href="http://www.reddit.com/r/osx/comments/2jpzoc/yosemite_tip_dark_mode_reduced_transparency_11/" target="_blank" rel="external">Reddit Link</a></p>
-</li><li>Google Chrome</li>
-
-<li><p>Install dark theme: <a href="https://chrome.google.com/webstore/detail/slinky-elegant/bmanlajnpdncmhfkiccmbgeocgbncfln" target="_blank" rel="external">Slinky Elegant</a></p>
-</li>
-</ul>
-
+<li><a href="#DarkMode">Embrace Dark Mode!!!</a>
+        
+          <p class="article-more-link">
+            <a href="/2015/04/21/super-javascript-developer-tools/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/04/21/super-javascript-developer-tools/" data-id="cic76w0hc00017tpf8m6kf8z4" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/04/21/super-javascript-developer-tools/" data-id="ciccxvgbz0001igpfzwz3kgy4" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
+
     </footer>
   </div>
   
@@ -575,11 +456,6 @@
 
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-  </div>
-
         </div>
       </header>
     
@@ -590,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/03/05/hello-world-1/" data-id="cic76w0hn000b7tpfjtq34jhq" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/03/05/hello-world-1/" data-id="ciccxvgd5000figpfcyr4wae9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -615,13 +491,13 @@
             <div class="item-thumbnail">
               <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
   
-    <span style="background-image:url(/../../../../express.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
+    <span style="background-image:url(/2015/07/14/custom-mac-terminal-bash-colors/ScreenShotAfter.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a></p>
               <p class="item-title"><a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
               <p class="item-date"><time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time></p>
             </div>
@@ -638,7 +514,7 @@
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/07/02/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
               <p class="item-date"><time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time></p>
             </div>
@@ -655,7 +531,7 @@
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/06/19/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
               <p class="item-date"><time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">2015-06-19</time></p>
             </div>
@@ -666,13 +542,13 @@
             <div class="item-thumbnail">
               <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(/2015/06/09/expressjs-session-tutorial/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/06/09/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
               <p class="item-date"><time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time></p>
             </div>
@@ -689,7 +565,7 @@
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/04/21/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
               <p class="item-date"><time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">2015-04-21</time></p>
             </div>
@@ -704,14 +580,28 @@
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack-Reactor/">Hack Reactor</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Hack-Reactor/JavaScript/Software-Development/">Software Development</a><span class="category-list-count">2</span></li></ul></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Engineering/">Software Engineering</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Engineering/Javascript/">Javascript</a><span class="category-list-count">4</span></li></ul></li></ul>
     </div>
   </div>
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hack-Reactor/" style="font-size: 10px;">Hack Reactor</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">

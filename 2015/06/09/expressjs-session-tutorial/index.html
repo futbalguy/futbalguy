@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/index.html">
 <meta property="og:site_name" content="Technikyle">
 <meta property="og:description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
-<meta property="og:updated_time" content="2015-07-16T20:21:25.000Z">
+<meta property="og:updated_time" content="2015-07-21T05:56:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ExpressJS Session Tutorial">
 <meta name="twitter:description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
@@ -97,8 +97,8 @@
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        0
-        <span>tag</span>
+        2
+        <span>tags</span>
       </div>
     </div>
     
@@ -126,6 +126,14 @@
       <section id="main"><article id="post-expressjs-session-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      
+	
+		<img src="express.png" class="article-banner">
+	
+
+
+
+    
     
     
       <header class="article-header">
@@ -149,7 +157,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/Software-Development/">Software Development</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
   </div>
 
         </div>
@@ -158,6 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to save user state.</p>
+<a id="more"></a>
 <h4 id="Back-End_Setup">Back-End Setup</h4><ul>
 <li><a href="#">NodeJS</a></li>
 <li><a href="#">ExpressJS web framework</a></li>
@@ -182,7 +191,7 @@
 <h4 id="app-js-2">app.js</h4><p>[js]</p>
 <p>//check for session.user, if not found then redirect user to login<br>function restrict(req, res, next) {<br>  if (req.session.user) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
 <p>[/js]</p>
-<h3 id="Putting_It_All_Together">Putting It All Together</h3><p>Here is the final code for our tutorial server. The server will remember a user who previously logged in and save them the hastle of logging in again! </p>
+<h3 id="Putting_It_All_Together">Putting It All Together</h3><p>Here is the final code for our tutorial server. The server will remember a user who previously logged in and save them the hastle of logging in again!</p>
 <h4 id="app-js-3">app.js</h4><p>[js]</p>
 <p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
 <p>var app = express();</p>
@@ -199,9 +208,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cic76w0ho000d7tpfazui8nmd" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="ciccxvgde000gigpf35kkj9yz" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
+
     </footer>
   </div>
   
@@ -244,13 +255,13 @@
             <div class="item-thumbnail">
               <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
   
-    <span style="background-image:url(/../../../../express.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
+    <span style="background-image:url(/2015/07/14/custom-mac-terminal-bash-colors/ScreenShotAfter.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a></p>
               <p class="item-title"><a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
               <p class="item-date"><time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time></p>
             </div>
@@ -267,7 +278,7 @@
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/07/02/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
               <p class="item-date"><time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time></p>
             </div>
@@ -284,7 +295,7 @@
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/06/19/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
               <p class="item-date"><time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">2015-06-19</time></p>
             </div>
@@ -295,13 +306,13 @@
             <div class="item-thumbnail">
               <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(/2015/06/09/expressjs-session-tutorial/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/06/09/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
               <p class="item-date"><time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time></p>
             </div>
@@ -318,7 +329,7 @@
             </div>
             
             <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Hack-Reactor/">Hack Reactor</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
               <p class="item-title"><a href="/2015/04/21/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
               <p class="item-date"><time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">2015-04-21</time></p>
             </div>
@@ -333,14 +344,28 @@
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack-Reactor/">Hack Reactor</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Hack-Reactor/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Hack-Reactor/JavaScript/Software-Development/">Software Development</a><span class="category-list-count">2</span></li></ul></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Engineering/">Software Engineering</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Engineering/Javascript/">Javascript</a><span class="category-list-count">4</span></li></ul></li></ul>
     </div>
   </div>
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hack-Reactor/" style="font-size: 10px;">Hack Reactor</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
