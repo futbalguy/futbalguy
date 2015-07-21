@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Storing Images In Firebase | Technikyle</title>
+  <title>Hello World! | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.
-We picked Firebase to off">
+  <meta name="description" content="Obligatory first post! Time to start writing!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Storing Images In Firebase">
-<meta property="og:url" content="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/index.html">
+<meta property="og:title" content="Hello World!">
+<meta property="og:url" content="http://futbalguy.github.io/hello-world-1/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.
-We picked Firebase to off">
-<meta property="og:updated_time" content="2015-07-21T15:57:40.000Z">
+<meta property="og:description" content="Obligatory first post! Time to start writing!">
+<meta property="og:updated_time" content="2015-07-21T16:09:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Storing Images In Firebase">
-<meta name="twitter:description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.
-We picked Firebase to off">
+<meta name="twitter:title" content="Hello World!">
+<meta name="twitter:description" content="Obligatory first post! Time to start writing!">
   
   
     <link rel="icon" href="favicon.png">
@@ -126,12 +123,12 @@ We picked Firebase to off">
   </div>
 </aside>
       
-      <section id="main"><article id="post-storing-images-in-firebase" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-hello-world-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
 	
-		<img src="/firebase.jpg" class="article-banner">
+		<img src="/helloworld.jpg" class="article-banner">
 	
 
 
@@ -143,7 +140,7 @@ We picked Firebase to off">
         
   
     <h1 class="article-title" itemprop="name">
-      Storing Images In Firebase
+      Hello World!
     </h1>
   
 
@@ -151,79 +148,41 @@ We picked Firebase to off">
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/02/storing-images-in-firebase/">
-      <time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time>
+    <a href="/hello-world-1/">
+      <time datetime="2015-03-06T03:36:23.000Z" itemprop="datePublished">2015-03-05</time>
     </a>
   </div>
 
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
-  </div>
-
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.</p>
-<p>We picked Firebase to offload storage and data transfer work from our own server. We also just wanted to check out Firebase after hearing so many good things about its ease of use!</p>
-<p>Getting started with Firebase is very fast and straight-forward! Go to <a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a> and add a new account. They will provide you with a database for storing your information.</p>
-<a id="more"></a>
-<h4 id="Our_Stack">Our Stack</h4><ul>
-<li><a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a></li>
-<li><a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a></li>
-</ul>
-<h3 id="Firebase_Basics">Firebase Basics</h3><p>All Firebase database data is stored as JSON objects. When you add data to the JSON tree, it becomes a key in the existing JSON structure.</p>
-<p>However, <strong>Firebase databases have no native support for arrays</strong>. If we try to store an array, it really gets stored as an “object” with integers as the key names.</p>
-<p>You access the database with a URL and command it to do what you need. For example, if you want to save images from event #3, you could use the following URL path:<br><em><a href="https://yourAppName.firebaseio.com/events/3/images" target="_blank" rel="external">https://yourAppName.firebaseio.com/events/3/images</a></em></p>
-<h3 id="Interacting_With_Firebase">Interacting With Firebase</h3><p>There are several options for interacting with Firebase:</p>
-<ol>
-<li>Firebase website</li>
-<li>RESTful API</li>
-<li>Firebase and AngularFire modules for Angular</li>
-</ol>
-<p>We chose Option 3 - Firebase and AngularFire modules - because it is the most Javascript-friendly.</p>
-<p><strong>PRO TIP:</strong> Image files for Firebase need to be in a string format (and must be under 10mb)! You’ll want to get the base64-encoded contents so you can store it as a string. The general approach is to convert the file locally (using FileReader).</p>
-<p>Now let’s see how it works in practice…</p>
-<h3 id="Javascript_and_Firebase">Javascript and Firebase</h3><p>First step: install bower dependency manager and the bower components for Firebase and AngularFire</p>
-<div class="code"><br><br>#### terminal<br><br>[code]<br>bower init<br>bower install firebase —save<br>bower install angularfire —save<br><br>[/code]<br></div>
+        <p>Obligatory first post! Time to start writing!</p>
 
-<p>Now instantiate a Firebase object with the URL path for your app and inject the firebase module into your app.</p>
-<div class="code"><br><br>#### app.js<br><br>[js]<br>var fb = new Firebase(&quot;<a href="https://yourAppName.firebaseio.com/&amp;quot" target="_blank" rel="external">https://yourAppName.firebaseio.com/&amp;quot</a>;);<br><br>angular.module(‘app’, [‘firebase’])<br><br>//…other code here…//<br>[/js]<br></div>
-
-<p>Next, inject Firebase into the Angular module where your controller is located. The <strong>$firebaseArray</strong> variable below comes from the AngularFire module.</p>
-<div class="code"><br><br>#### controller.js<br><br>[js]<br>angular.module(‘app.controllers’, [‘firebase’])<br><br>.controller(‘AppCtrl’, function($scope,$firebaseArray) {<br><br>    $scope.uploadImage = function(imageData, incidentID) {<br>    var FR = new FileReader();<br><br>      FR.onload = function(e) {<br>        var imageString = e.target.result;<br><br>        //create URL that refers to a specific event and add images as an array-like object to hold images<br>        var eventReference = fb.child(&quot;events/&quot; + incidentID);<br>        var syncArray = $firebaseArray(eventReference.child(&quot;images&quot;));<br><br>        $scope.user = Auth.getUser();<br>        var username = $scope.user.username || ‘’;<br><br>        var submitDate = new Date().toISOString().slice(0, 10);<br><br>        syncArray.$add({<br>            imageString: imageString,<br>            username: username,<br>            submitDate: submitDate<br>        })<br>          .then(function() {<br>            console.log(&quot;Image has been uploaded&quot;);<br>          });<br>      };<br>      FR.readAsDataURL(imageData);<br>    });<br><br>[/js]<br></div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/02/storing-images-in-firebase/" data-id="cicdjeh6j000ajbpfhle3geft" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/hello-world-1/" data-id="cicdkepoy000f95pfpy52wg6v" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2015/07/14/custom-mac-terminal-bash-colors/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/super-javascript-developer-tools/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Terminal Bash Command Line &amp; Colors
+          Super JavaScript Developer Tools
         
       </div>
     </a>
   
-  
-    <a href="/2015/06/19/bookshelf-js-orm/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Bookshelf.js Javascript ORM and SQL</div>
-    </a>
   
 </nav>
 
@@ -244,7 +203,7 @@ We picked Firebase to off">
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
+              <a href="/custom-mac-terminal-bash-colors/" class="thumbnail">
   
     <span style="background-image:url(/ScreenShotAfter.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
@@ -253,7 +212,7 @@ We picked Firebase to off">
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a></p>
-              <p class="item-title"><a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
+              <p class="item-title"><a href="/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
               <p class="item-date"><time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time></p>
             </div>
           </li>
@@ -261,7 +220,7 @@ We picked Firebase to off">
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/07/02/storing-images-in-firebase/" class="thumbnail">
+              <a href="/storing-images-in-firebase/" class="thumbnail">
   
     <span style="background-image:url(/firebase.jpg)" alt="Storing Images In Firebase" class="thumbnail-image"></span>
   
@@ -270,7 +229,7 @@ We picked Firebase to off">
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/07/02/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
+              <p class="item-title"><a href="/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
               <p class="item-date"><time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time></p>
             </div>
           </li>
@@ -278,7 +237,7 @@ We picked Firebase to off">
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/06/19/bookshelf-js-orm/" class="thumbnail">
+              <a href="/bookshelf-js-orm/" class="thumbnail">
   
     <span style="background-image:url(/bookshelf.png)" alt="Bookshelf.js Javascript ORM and SQL" class="thumbnail-image"></span>
   
@@ -287,7 +246,7 @@ We picked Firebase to off">
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/06/19/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
+              <p class="item-title"><a href="/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
               <p class="item-date"><time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">2015-06-19</time></p>
             </div>
           </li>
@@ -295,7 +254,7 @@ We picked Firebase to off">
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
+              <a href="/expressjs-session-tutorial/" class="thumbnail">
   
     <span style="background-image:url(/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
   
@@ -304,7 +263,7 @@ We picked Firebase to off">
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/06/09/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
+              <p class="item-title"><a href="/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
               <p class="item-date"><time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time></p>
             </div>
           </li>
@@ -312,7 +271,7 @@ We picked Firebase to off">
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/04/21/super-javascript-developer-tools/" class="thumbnail">
+              <a href="/super-javascript-developer-tools/" class="thumbnail">
   
     <span style="background-image:url(/superman-shirt.jpg)" alt="Super JavaScript Developer Tools" class="thumbnail-image"></span>
   
@@ -321,7 +280,7 @@ We picked Firebase to off">
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/04/21/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
+              <p class="item-title"><a href="/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
               <p class="item-date"><time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">2015-04-21</time></p>
             </div>
           </li>

@@ -3,23 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Terminal Bash Command Line &amp; Colors | Technikyle</title>
+  <title>ExpressJS Session Tutorial | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
-The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
+  <meta name="description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Terminal Bash Command Line & Colors">
-<meta property="og:url" content="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/index.html">
+<meta property="og:title" content="ExpressJS Session Tutorial">
+<meta property="og:url" content="http://futbalguy.github.io/expressjs-session-tutorial/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
-The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
-<meta property="og:image" content="http://futbalguy.github.io/ScreenShotBefore.png">
-<meta property="og:image" content="http://futbalguy.github.io/ScreenShotAfter.png">
-<meta property="og:updated_time" content="2015-07-21T15:48:29.000Z">
+<meta property="og:description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
+<meta property="og:updated_time" content="2015-07-21T15:51:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Terminal Bash Command Line & Colors">
-<meta name="twitter:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
-The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
+<meta name="twitter:title" content="ExpressJS Session Tutorial">
+<meta name="twitter:description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
   
   
     <link rel="icon" href="favicon.png">
@@ -128,12 +123,12 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
   </div>
 </aside>
       
-      <section id="main"><article id="post-custom-mac-terminal-bash-colors" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-expressjs-session-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
 	
-		<img src="/ScreenShotAfter.png" class="article-banner">
+		<img src="/express.png" class="article-banner">
 	
 
 
@@ -145,7 +140,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
         
   
     <h1 class="article-title" itemprop="name">
-      Terminal Bash Command Line &amp; Colors
+      ExpressJS Session Tutorial
     </h1>
   
 
@@ -153,8 +148,8 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/14/custom-mac-terminal-bash-colors/">
-      <time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time>
+    <a href="/expressjs-session-tutorial/">
+      <time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time>
     </a>
   </div>
 
@@ -162,7 +157,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a>
+    <a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a>
   </div>
 
         </div>
@@ -170,24 +165,50 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).</p>
-<p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs?</p>
-<p>YES, so let’s make some changes that will increase producitivity and asthetics at the same time!</p>
+        <p>On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to save user state.</p>
 <a id="more"></a>
-<h2 id="Customizing_Your_Terminal_Bash_Profile">Customizing Your Terminal Bash Profile</h2><p>First, you need to learn a little about bash. bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
-<p>The first step is to go to start Terminal, navigate to your home directory, and open .bash_profile in a text editor.</p>
-<h5 id="terminal">terminal</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//navigate to home directory and&#10;//open .bash_profile in a text editor (i.e. sublime)&#10;cd ~&#10;sublime .bash_profile</span><br></pre></td></tr></table></figure>
-<p>Second, you can customize the bash prompt to show full filepath, hide username, and show your current git branch name (if applicable). We also add a new line to seperate the prompt from the prior command.</p>
-<h5 id="-bash_profile">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n\w\ $(parse_git_branch) &amp;quot;</span><br></pre></td></tr></table></figure>
-<p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
-<h5 id="-bash_profile-1">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># High Intensty Colors</span></span><br><span class="line">GREENH=<span class="string">'\[&amp;#92;&amp;#48;33[0;92m\]'</span> <span class="comment"># Green</span></span><br><span class="line">BLUEH=<span class="string">'\[&amp;#92;&amp;#48;33[0;94m\]'</span> <span class="comment"># Blue</span></span><br><span class="line"></span><br><span class="line">NC=<span class="string">'\[&amp;#92;&amp;#48;33[0m\]'</span> <span class="comment"># No color</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt with colors</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n<span class="variable">$&#123;BLUEH&#125;</span>\w<span class="variable">$&#123;GREENH&#125;</span>\$(parse_git_branch)<span class="variable">$&#123;NC&#125;</span> &amp;quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">#CLICOLOR will turn colors on or off.</span></span><br><span class="line"><span class="built_in">export</span> CLICOLOR=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#LS_COLORS is not required, and will let you customize the colors</span></span><br><span class="line"><span class="built_in">export</span> LSCOLORS=ExFxBxDxCxegedabagacad</span><br></pre></td></tr></table></figure>
-<h2 id="Behold_The_Difference">Behold The Difference</h2><h4 id="Before">Before</h4><p><img src="/ScreenShotBefore.png" alt=""></p>
-<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="/ScreenShotAfter.png" alt=""></p>
+<h4 id="Back-End_Setup">Back-End Setup</h4><ul>
+<li><a href="#">NodeJS</a></li>
+<li><a href="#">ExpressJS web framework</a></li>
+<li>Express - Middleware</li>
+</ul>
+<h3 id="Creating_the_Express_App">Creating the Express App</h3><p>Creating an Express app is simple and quick! Simply require Express and our middleware (after installing through NPM).</p>
+<h4 id="terminal">terminal</h4><p>[code]<br>npm init<br>npm install express —save<br>npm install cookie-parser —save<br>npm install express-session —save</p>
+<p>[/code]</p>
+<h4 id="app-js">app.js</h4><p>[js]</p>
+<p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
+<p>var app = express();</p>
+<p>[/js]</p>
+<h3 id="Express_Sessions">Express Sessions</h3><p>When a client connects to the server, the Express-Session middleware automatically adds a session object to the request. You can add any informaton you want to remember to the session object and save it on the server-side. A cookie with an identifier token is saved on the client side.</p>
+<p>Here we apply the middleware to the app:</p>
+<h4 id="app-js-1">app.js</h4><p>[js]</p>
+<p>//cookie parser is required for sessions to appear<br>app.use(cookieParser());</p>
+<p>//session instantiation has some required arguments,<br>//the Session documentation is pretty clear<br>app.use(session({<br>  secret: ‘boo’,<br>  resave: false,<br>  saveUninitialized: false<br>}));</p>
+<p>[/js]</p>
+<p>When the client connects in the future, the server can restore the session that corrsponds to the cookie identifier.</p>
+<p>To check authentication and enforce access restrictions, we created a custom middleware function that determines if a users cookie identifier matches a stored session on the server.</p>
+<p>(In this example, we are using the session memory store included with Express-Session to save and load prior sessions. This memory store is deleted everytime the server stops so you will need to save to a more stable storage (i.e. database) for production code.)</p>
+<h4 id="app-js-2">app.js</h4><p>[js]</p>
+<p>//check for session.user, if not found then redirect user to login<br>function restrict(req, res, next) {<br>  if (req.session.user) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
+<p>[/js]</p>
+<h3 id="Putting_It_All_Together">Putting It All Together</h3><p>Here is the final code for our tutorial server. The server will remember a user who previously logged in and save them the hastle of logging in again!</p>
+<h4 id="app-js-3">app.js</h4><p>[js]</p>
+<p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
+<p>var app = express();</p>
+<p>//cookie parser is required for sessions to appear<br>app.use(cookieParser());</p>
+<p>//session instantiation has some required arguments,<br>//the Session documentation is pretty clear<br>app.use(session({<br>  secret: ‘boo’,<br>  resave: false,<br>  saveUninitialized: false<br>}));</p>
+<p>function restrict(req, res, next) {<br>  //allow users with an active session as well as login page access<br>  if (req.session.user || req.url === ‘/login’) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
+<p>app.use(restrict);</p>
+<p>app.post(‘/login’, function(req, res) {<br>    if (/<em>login is valid</em>/) {<br>        req.session.user = {};<br>        req.session.save();<br>        res.redirect(‘/‘);<br>    } else {<br>        res.send(/<em>loginPageData</em>/)<br>    }<br>});</p>
+<p>app.get(‘/login’, function(req, res) {<br>     res.send(/<em>loginPageData</em>/)<br>});</p>
+<p>//client will only be routed to paths below if they were authenticated<br>app.get(‘/‘, function(req, res) {<br>     res.send(‘You are a real user if you can see this!’’)<br>});</p>
+<p>console.log(‘Listening on 8080’);<br>app.listen(808);</p>
+<p>[/js]</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/07/14/custom-mac-terminal-bash-colors/" data-id="cicdjeh6p000ljbpf77abs8d8" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/expressjs-session-tutorial/" data-id="cicdkepp0000g95pfvt4dtpm9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
@@ -198,10 +219,19 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
     
 <nav id="article-nav">
   
+    <a href="/bookshelf-js-orm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Bookshelf.js Javascript ORM and SQL
+        
+      </div>
+    </a>
   
-    <a href="/2015/07/02/storing-images-in-firebase/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/super-javascript-developer-tools/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Storing Images In Firebase</div>
+      <div class="article-nav-title">Super JavaScript Developer Tools</div>
     </a>
   
 </nav>
@@ -223,7 +253,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
+              <a href="/custom-mac-terminal-bash-colors/" class="thumbnail">
   
     <span style="background-image:url(/ScreenShotAfter.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
@@ -232,7 +262,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a></p>
-              <p class="item-title"><a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
+              <p class="item-title"><a href="/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
               <p class="item-date"><time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time></p>
             </div>
           </li>
@@ -240,7 +270,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/07/02/storing-images-in-firebase/" class="thumbnail">
+              <a href="/storing-images-in-firebase/" class="thumbnail">
   
     <span style="background-image:url(/firebase.jpg)" alt="Storing Images In Firebase" class="thumbnail-image"></span>
   
@@ -249,7 +279,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/07/02/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
+              <p class="item-title"><a href="/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
               <p class="item-date"><time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time></p>
             </div>
           </li>
@@ -257,7 +287,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/06/19/bookshelf-js-orm/" class="thumbnail">
+              <a href="/bookshelf-js-orm/" class="thumbnail">
   
     <span style="background-image:url(/bookshelf.png)" alt="Bookshelf.js Javascript ORM and SQL" class="thumbnail-image"></span>
   
@@ -266,7 +296,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/06/19/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
+              <p class="item-title"><a href="/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
               <p class="item-date"><time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">2015-06-19</time></p>
             </div>
           </li>
@@ -274,7 +304,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
+              <a href="/expressjs-session-tutorial/" class="thumbnail">
   
     <span style="background-image:url(/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
   
@@ -283,7 +313,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/06/09/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
+              <p class="item-title"><a href="/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
               <p class="item-date"><time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time></p>
             </div>
           </li>
@@ -291,7 +321,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/04/21/super-javascript-developer-tools/" class="thumbnail">
+              <a href="/super-javascript-developer-tools/" class="thumbnail">
   
     <span style="background-image:url(/superman-shirt.jpg)" alt="Super JavaScript Developer Tools" class="thumbnail-image"></span>
   
@@ -300,7 +330,7 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/04/21/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
+              <p class="item-title"><a href="/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
               <p class="item-date"><time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">2015-04-21</time></p>
             </div>
           </li>

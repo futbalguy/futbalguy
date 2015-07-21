@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ExpressJS Session Tutorial | Technikyle</title>
+  <title>Storing Images In Firebase | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
+  <meta name="description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.
+We picked Firebase to off">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ExpressJS Session Tutorial">
-<meta property="og:url" content="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/index.html">
+<meta property="og:title" content="Storing Images In Firebase">
+<meta property="og:url" content="http://futbalguy.github.io/storing-images-in-firebase/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
-<meta property="og:updated_time" content="2015-07-21T15:51:20.000Z">
+<meta property="og:description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.
+We picked Firebase to off">
+<meta property="og:updated_time" content="2015-07-21T15:57:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ExpressJS Session Tutorial">
-<meta name="twitter:description" content="On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to s">
+<meta name="twitter:title" content="Storing Images In Firebase">
+<meta name="twitter:description" content="I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.
+We picked Firebase to off">
   
   
     <link rel="icon" href="favicon.png">
@@ -123,12 +126,12 @@
   </div>
 </aside>
       
-      <section id="main"><article id="post-expressjs-session-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-storing-images-in-firebase" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
 	
-		<img src="/express.png" class="article-banner">
+		<img src="/firebase.jpg" class="article-banner">
 	
 
 
@@ -140,7 +143,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ExpressJS Session Tutorial
+      Storing Images In Firebase
     </h1>
   
 
@@ -148,8 +151,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/06/09/expressjs-session-tutorial/">
-      <time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time>
+    <a href="/storing-images-in-firebase/">
+      <time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time>
     </a>
   </div>
 
@@ -165,50 +168,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>On my latest Hack Reactor sprint, I had to design a server that could authenticate a user and identify them later through cookies. The following is a tutorial on how to use ExpressJS and sessions to save user state.</p>
+        <p>I spent the last day at Hack Reactor adding an image capture feature to a website. For storing images, we decided between storing on our own server, Amazon AWS, and Firebase.</p>
+<p>We picked Firebase to offload storage and data transfer work from our own server. We also just wanted to check out Firebase after hearing so many good things about its ease of use!</p>
+<p>Getting started with Firebase is very fast and straight-forward! Go to <a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a> and add a new account. They will provide you with a database for storing your information.</p>
 <a id="more"></a>
-<h4 id="Back-End_Setup">Back-End Setup</h4><ul>
-<li><a href="#">NodeJS</a></li>
-<li><a href="#">ExpressJS web framework</a></li>
-<li>Express - Middleware</li>
+<h4 id="Our_Stack">Our Stack</h4><ul>
+<li><a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a></li>
+<li><a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a></li>
 </ul>
-<h3 id="Creating_the_Express_App">Creating the Express App</h3><p>Creating an Express app is simple and quick! Simply require Express and our middleware (after installing through NPM).</p>
-<h4 id="terminal">terminal</h4><p>[code]<br>npm init<br>npm install express —save<br>npm install cookie-parser —save<br>npm install express-session —save</p>
-<p>[/code]</p>
-<h4 id="app-js">app.js</h4><p>[js]</p>
-<p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
-<p>var app = express();</p>
-<p>[/js]</p>
-<h3 id="Express_Sessions">Express Sessions</h3><p>When a client connects to the server, the Express-Session middleware automatically adds a session object to the request. You can add any informaton you want to remember to the session object and save it on the server-side. A cookie with an identifier token is saved on the client side.</p>
-<p>Here we apply the middleware to the app:</p>
-<h4 id="app-js-1">app.js</h4><p>[js]</p>
-<p>//cookie parser is required for sessions to appear<br>app.use(cookieParser());</p>
-<p>//session instantiation has some required arguments,<br>//the Session documentation is pretty clear<br>app.use(session({<br>  secret: ‘boo’,<br>  resave: false,<br>  saveUninitialized: false<br>}));</p>
-<p>[/js]</p>
-<p>When the client connects in the future, the server can restore the session that corrsponds to the cookie identifier.</p>
-<p>To check authentication and enforce access restrictions, we created a custom middleware function that determines if a users cookie identifier matches a stored session on the server.</p>
-<p>(In this example, we are using the session memory store included with Express-Session to save and load prior sessions. This memory store is deleted everytime the server stops so you will need to save to a more stable storage (i.e. database) for production code.)</p>
-<h4 id="app-js-2">app.js</h4><p>[js]</p>
-<p>//check for session.user, if not found then redirect user to login<br>function restrict(req, res, next) {<br>  if (req.session.user) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
-<p>[/js]</p>
-<h3 id="Putting_It_All_Together">Putting It All Together</h3><p>Here is the final code for our tutorial server. The server will remember a user who previously logged in and save them the hastle of logging in again!</p>
-<h4 id="app-js-3">app.js</h4><p>[js]</p>
-<p>var express = require(‘express’);<br>var cookieParser = require(‘cookie-parser’);<br>var session = require(‘express-session’);</p>
-<p>var app = express();</p>
-<p>//cookie parser is required for sessions to appear<br>app.use(cookieParser());</p>
-<p>//session instantiation has some required arguments,<br>//the Session documentation is pretty clear<br>app.use(session({<br>  secret: ‘boo’,<br>  resave: false,<br>  saveUninitialized: false<br>}));</p>
-<p>function restrict(req, res, next) {<br>  //allow users with an active session as well as login page access<br>  if (req.session.user || req.url === ‘/login’) {<br>    next();<br>  } else {<br>    req.session.error = ‘Access denied!’;<br>    res.redirect(‘/login’);<br>  }<br>}</p>
-<p>app.use(restrict);</p>
-<p>app.post(‘/login’, function(req, res) {<br>    if (/<em>login is valid</em>/) {<br>        req.session.user = {};<br>        req.session.save();<br>        res.redirect(‘/‘);<br>    } else {<br>        res.send(/<em>loginPageData</em>/)<br>    }<br>});</p>
-<p>app.get(‘/login’, function(req, res) {<br>     res.send(/<em>loginPageData</em>/)<br>});</p>
-<p>//client will only be routed to paths below if they were authenticated<br>app.get(‘/‘, function(req, res) {<br>     res.send(‘You are a real user if you can see this!’’)<br>});</p>
-<p>console.log(‘Listening on 8080’);<br>app.listen(808);</p>
-<p>[/js]</p>
+<h3 id="Firebase_Basics">Firebase Basics</h3><p>All Firebase database data is stored as JSON objects. When you add data to the JSON tree, it becomes a key in the existing JSON structure.</p>
+<p>However, <strong>Firebase databases have no native support for arrays</strong>. If we try to store an array, it really gets stored as an “object” with integers as the key names.</p>
+<p>You access the database with a URL and command it to do what you need. For example, if you want to save images from event #3, you could use the following URL path:<br><em><a href="https://yourAppName.firebaseio.com/events/3/images" target="_blank" rel="external">https://yourAppName.firebaseio.com/events/3/images</a></em></p>
+<h3 id="Interacting_With_Firebase">Interacting With Firebase</h3><p>There are several options for interacting with Firebase:</p>
+<ol>
+<li>Firebase website</li>
+<li>RESTful API</li>
+<li>Firebase and AngularFire modules for Angular</li>
+</ol>
+<p>We chose Option 3 - Firebase and AngularFire modules - because it is the most Javascript-friendly.</p>
+<p><strong>PRO TIP:</strong> Image files for Firebase need to be in a string format (and must be under 10mb)! You’ll want to get the base64-encoded contents so you can store it as a string. The general approach is to convert the file locally (using FileReader).</p>
+<p>Now let’s see how it works in practice…</p>
+<h3 id="Javascript_and_Firebase">Javascript and Firebase</h3><p>First step: install bower dependency manager and the bower components for Firebase and AngularFire</p>
+<div class="code"><br><br>#### terminal<br><br>[code]<br>bower init<br>bower install firebase —save<br>bower install angularfire —save<br><br>[/code]<br></div>
 
+<p>Now instantiate a Firebase object with the URL path for your app and inject the firebase module into your app.</p>
+<div class="code"><br><br>#### app.js<br><br>[js]<br>var fb = new Firebase(&quot;<a href="https://yourAppName.firebaseio.com/&amp;quot" target="_blank" rel="external">https://yourAppName.firebaseio.com/&amp;quot</a>;);<br><br>angular.module(‘app’, [‘firebase’])<br><br>//…other code here…//<br>[/js]<br></div>
+
+<p>Next, inject Firebase into the Angular module where your controller is located. The <strong>$firebaseArray</strong> variable below comes from the AngularFire module.</p>
+<div class="code"><br><br>#### controller.js<br><br>[js]<br>angular.module(‘app.controllers’, [‘firebase’])<br><br>.controller(‘AppCtrl’, function($scope,$firebaseArray) {<br><br>    $scope.uploadImage = function(imageData, incidentID) {<br>    var FR = new FileReader();<br><br>      FR.onload = function(e) {<br>        var imageString = e.target.result;<br><br>        //create URL that refers to a specific event and add images as an array-like object to hold images<br>        var eventReference = fb.child(&quot;events/&quot; + incidentID);<br>        var syncArray = $firebaseArray(eventReference.child(&quot;images&quot;));<br><br>        $scope.user = Auth.getUser();<br>        var username = $scope.user.username || ‘’;<br><br>        var submitDate = new Date().toISOString().slice(0, 10);<br><br>        syncArray.$add({<br>            imageString: imageString,<br>            username: username,<br>            submitDate: submitDate<br>        })<br>          .then(function() {<br>            console.log(&quot;Image has been uploaded&quot;);<br>          });<br>      };<br>      FR.readAsDataURL(imageData);<br>    });<br><br>[/js]<br></div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/2015/06/09/expressjs-session-tutorial/" data-id="cicdjeh6n000gjbpfixlqhnaq" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/storing-images-in-firebase/" data-id="cicdkepov000a95pfyokaclfy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
@@ -219,19 +210,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/06/19/bookshelf-js-orm/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/custom-mac-terminal-bash-colors/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Bookshelf.js Javascript ORM and SQL
+          Terminal Bash Command Line &amp; Colors
         
       </div>
     </a>
   
   
-    <a href="/2015/04/21/super-javascript-developer-tools/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/bookshelf-js-orm/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Super JavaScript Developer Tools</div>
+      <div class="article-nav-title">Bookshelf.js Javascript ORM and SQL</div>
     </a>
   
 </nav>
@@ -253,7 +244,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="thumbnail">
+              <a href="/custom-mac-terminal-bash-colors/" class="thumbnail">
   
     <span style="background-image:url(/ScreenShotAfter.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
   
@@ -262,7 +253,7 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a></p>
-              <p class="item-title"><a href="/2015/07/14/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
+              <p class="item-title"><a href="/custom-mac-terminal-bash-colors/" class="title">Terminal Bash Command Line &amp; Colors</a></p>
               <p class="item-date"><time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time></p>
             </div>
           </li>
@@ -270,7 +261,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/07/02/storing-images-in-firebase/" class="thumbnail">
+              <a href="/storing-images-in-firebase/" class="thumbnail">
   
     <span style="background-image:url(/firebase.jpg)" alt="Storing Images In Firebase" class="thumbnail-image"></span>
   
@@ -279,7 +270,7 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/07/02/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
+              <p class="item-title"><a href="/storing-images-in-firebase/" class="title">Storing Images In Firebase</a></p>
               <p class="item-date"><time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015-07-02</time></p>
             </div>
           </li>
@@ -287,7 +278,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/06/19/bookshelf-js-orm/" class="thumbnail">
+              <a href="/bookshelf-js-orm/" class="thumbnail">
   
     <span style="background-image:url(/bookshelf.png)" alt="Bookshelf.js Javascript ORM and SQL" class="thumbnail-image"></span>
   
@@ -296,7 +287,7 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/06/19/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
+              <p class="item-title"><a href="/bookshelf-js-orm/" class="title">Bookshelf.js Javascript ORM and SQL</a></p>
               <p class="item-date"><time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">2015-06-19</time></p>
             </div>
           </li>
@@ -304,7 +295,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/06/09/expressjs-session-tutorial/" class="thumbnail">
+              <a href="/expressjs-session-tutorial/" class="thumbnail">
   
     <span style="background-image:url(/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
   
@@ -313,7 +304,7 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/06/09/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
+              <p class="item-title"><a href="/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
               <p class="item-date"><time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time></p>
             </div>
           </li>
@@ -321,7 +312,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/04/21/super-javascript-developer-tools/" class="thumbnail">
+              <a href="/super-javascript-developer-tools/" class="thumbnail">
   
     <span style="background-image:url(/superman-shirt.jpg)" alt="Super JavaScript Developer Tools" class="thumbnail-image"></span>
   
@@ -330,7 +321,7 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Software-Engineering/">Software Engineering</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Software-Engineering/Javascript/">Javascript</a></p>
-              <p class="item-title"><a href="/2015/04/21/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
+              <p class="item-title"><a href="/super-javascript-developer-tools/" class="title">Super JavaScript Developer Tools</a></p>
               <p class="item-date"><time datetime="2015-04-21T10:14:52.000Z" itemprop="datePublished">2015-04-21</time></p>
             </div>
           </li>
