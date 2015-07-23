@@ -118,7 +118,7 @@ body,
 body {
   color: #565a5f;
   background: #f0f3f6;
-  font: 14px "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 a {
@@ -537,7 +537,7 @@ a:visited {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   border: 1px solid #eceff2;
 }
 .search-form-input:focus {
@@ -913,7 +913,7 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.6em 0;
-  font-family: "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font-family: "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -1118,7 +1118,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   padding: 0 15px;
   color: #565a5f;
   outline: none;
@@ -1464,7 +1464,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
 }
 .article-entry code {
   background: #f0f3f6;
@@ -1523,7 +1523,7 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
@@ -1554,7 +1554,7 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #34383d;
   color: #999;
-  font: 0.85em "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font: 0.85em "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
