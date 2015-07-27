@@ -13,7 +13,7 @@ I recommend these Super JavaScript Development Tool">
 <meta property="og:site_name" content="Technikyle">
 <meta property="og:description" content="I recently spent time setting up my developer environment for Hack Reactor bootcamp. Using the right tools can massively increase your productivity!
 I recommend these Super JavaScript Development Tool">
-<meta property="og:updated_time" content="2015-07-21T17:07:10.000Z">
+<meta property="og:updated_time" content="2015-07-27T01:29:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Super JavaScript Developer Tools">
 <meta name="twitter:description" content="I recently spent time setting up my developer environment for Hack Reactor bootcamp. Using the right tools can massively increase your productivity!
@@ -150,10 +150,8 @@ I recommend these Super JavaScript Development Tool">
 <li><a href="#DarkMode">Embrace Dark Mode!!!</a><a id="more"></a>
 <span style="color: #999999;">(Note: I learned a lot trying out different software so I suggest playing around)</span></li>
 </ol>
-<p>[showhide type=”post1” more_text=”Reveal JS vs iOS Comparison” less_text=”Hide JS vs iOS Comparison”]</p>
 <p>For iOS apps, I could write code, debug, and run an app within Xcode. Xcode has its flaws, but it is straightforward and it’s nice not having to switch applications often.</p>
 <p>In comparison, JS devs write code in text editors (with helpful plug-ins), debug and test in the browser, run version control and file management in the terminal, and even more! You need to be smart about how you manage your developer environment.</p>
-<p>[/showhide]</p>
 <h3 id="1-_Sublime_Text">1. Sublime Text<a id="Sublime" class="anchor"></a></h3><p><a href="http://www.sublimetext.com" target="_blank" rel="external">Sublime Text</a> is my most used app and appears to be the most popular text editor for JS devs.</p>
 <p>Why is Sublime Text popular? It has developer-friendly features like syntax highlighting and code completion. In addition, a huge library of plugins (a.k.a. packages) let you customize and add functionality!</p>
 <p><strong>SUPER TIP</strong>: Install Version 3. <a href="http://www.sublimetext.com/blog/articles/sublime-text-3-build-3080" target="_blank" rel="external">This beta is actually recommended for daily use by the Sublime Text team.</a> It has worked great for me.</p>
@@ -163,11 +161,11 @@ I recommend these Super JavaScript Development Tool">
 <h3 id="3-_HTML/CSS/JS_Prettify">3. HTML/CSS/JS Prettify<a id="HTMLPrettify" class="anchor"></a></h3><p>Pretty code is readable code. Readable code improves developer productivity.</p>
 <p>Install the <a href="https://github.com/victorporof/Sublime-HTMLPrettify" target="_blank" rel="external">HTML/CSS/JS Prettify</a> in Sublime Text to prettify your code with a simple key press (Shift+CMD+H by default).</p>
 <p><strong>SUPER TIP</strong>: By default, prettified CSS code moves each HTML selector to a new line. This looks horrible. Therefore, I suggest you update the following code in <em>Sublime Text &gt; Preferences &gt; Package Settings &gt; HTML/CSS/JS Prettify &gt; Set Prettify Preferences</em>:</p>
-<p>[code]<br>&quot;css&quot;: {<br>    …<br>    &quot;selector_separator_newline&quot;: false //<br> }<br>[/code]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;css&#39;: &#123;&#10;    ...&#10;    &#39;selector_separator_newline&#39;: false&#10; &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-_Sublime_JavaScript_Console">4. Sublime JavaScript Console<a id="SublimeJSBuild" class="anchor"></a></h3><p>Tired of switching to the browser to run every bit of code? That’s because you’re lazy…</p>
 <p>JK…just install Sublime JS Build Console by <a href="http://www.wikihow.com/Create-a-Javascript-Console-in-Sublime-Text" target="_blank" rel="external">following Method 2</a>. Now you just press CMD+B to run your code in Sublime Text.</p>
 <p><strong>SUPER TIP</strong>: Step 3 in the installation instructions above gave code for ‘Node.sublime-build’ that did not work for me. It didn’t point to Node.JS correctly. Here is the code I used to get it to work:</p>
-<p>[code]<br>{<br>    &quot;cmd&quot;: [&quot;/usr/local/bin/node&quot;, &quot;$file&quot;],<br>    &quot;selector&quot;: &quot;source.js&quot;<br>}<br>[/code]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;&#9;&#39;cmd&#39;: [&#39;/usr/local/bin/node&#39;, &#39;$file&#39;],&#10;&#9;&#39;selector&#39;: &#39;source.js&#39;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="5-_Slate">5. Slate<a id="Slate" class="anchor"></a></h3><p>Switching between application windows can be very inefficient…if your doing it wrong.</p>
 <p>The right way is by using smart window management software like <a href="https://github.com/jigish/slate" target="_blank" rel="external">Slate</a>.</p>
 <p>Slate lets use you use keyboard shortcuts to move, switch, and show/hide windows. A major plus is the high level of customization offered.</p>
@@ -176,42 +174,32 @@ I recommend these Super JavaScript Development Tool">
 <li>CMD+1: Split-screen Google Chrome &amp; Sublime Text</li>
 <li>CMD+2: Split-screen Google Chrome &amp; Terminal</li>
 <li>CMD+Shift+Up/Down/Left/Right: Move window to half of screen width/height</li>
-<li>CMD+Option+Up/Down/Left/Right: Focus window in direction<br>[showhide type=”post2” more_text=”Reveal My Slate Configuration” less_text=”Hide My Slate Configuration”]</li>
+<li>CMD+Option+Up/Down/Left/Right: Focus window in direction</li>
 </ul>
 <p>This is my Slate configuration file. Filepath should be ‘~/.slate’</p>
-<p>[code]<br>config defaultToCurrentScreen true<br>config nudgePercentOf screenSize<br>config resizePercentOf screenSize</p>
-<h1 id="Shows_app_icons_and_background_apps,_spreads_icons_in_the_same_place-">Shows app icons and background apps, spreads icons in the same place.</h1><p>config windowHintsShowIcons true<br>config windowHintsIgnoreHiddenWindows false<br>config windowHintsSpread true</p>
-<p>config layoutFocusOnActivate true</p>
-<h1 id="Relaunch_slate">Relaunch slate</h1><p>bind esc:cmd relaunch</p>
-<h1 id="Alias">Alias</h1><p>alias lefthalf push left bar-resize:screenSizeX/2<br>alias righthalf push right bar-resize:screenSizeX/2<br>alias tophalf push up bar-resize:screenSizeY/2<br>alias bottomhalf push down bar-resize:screenSizeY/2<br>alias fullscreen push up bar-resize:screenSizeY</p>
-<h1 id="Push_Bindings">Push Bindings</h1><p>bind right:ctrl;cmd  ${righthalf}<br>bind left:ctrl;cmd   ${lefthalf}<br>bind up:ctrl;cmd     chain ${tophalf} | ${fullscreen}<br>bind down:ctrl;cmd   ${bottomhalf}</p>
-<h1 id="Focus_Bindings">Focus Bindings</h1><p>bind right:cmd,alt    focus right<br>bind left:cmd,alt      focus left<br>bind up:cmd,alt        focus up<br>bind down:cmd,alt      focus down</p>
-<h1 id="bind_up:cmd_focus_behind">bind up:cmd   focus behind</h1><h1 id="bind_down:cmd_focus_behind">bind down:cmd focus behind</h1><h1 id="Layout’s_directive_-_layout_name_‘app_name’:OPTIONS_operations">Layout’s directive - layout name ‘app name’:OPTIONS operations</h1><p>layout javascriptLayout ‘Google Chrome’:REPEAT ${lefthalf}<br>layout javascriptLayout ‘Sublime Text’:REPEAT ${righthalf}</p>
-<p>layout mailLayout ‘Mail’:REPEAT ${fullscreen}</p>
-<p>layout spotifyLayout ‘Spotify’:REPEAT ${fullscreen}</p>
-<p>layout iTermLayout ‘Google Chrome’:REPEAT ${lefthalf}<br>layout iTermLayout ‘iTerm’:REPEAT ${righthalf}</p>
-<h1 id="Layout_Bindings">Layout Bindings</h1><p>bind 1:cmd layout javascriptLayout<br>bind 2:cmd layout iTermLayout<br>bind 3:cmd layout mailLayout<br>bind 4:cmd layout spotifyLayout<br>[/code]</p>
-<p>[/showhide]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config defaultToCurrentScreen true&#10;config nudgePercentOf screenSize&#10;config resizePercentOf screenSize&#10;&#10;# Shows app icons and background apps, spreads icons in the same place.&#10;config windowHintsShowIcons true&#10;config windowHintsIgnoreHiddenWindows false&#10;config windowHintsSpread true&#10;&#10;config layoutFocusOnActivate true&#10;&#10;# Relaunch slate&#10;bind esc:cmd relaunch&#10;&#10;# Alias&#10;alias lefthalf push left bar-resize:screenSizeX/2&#10;alias righthalf push right bar-resize:screenSizeX/2&#10;alias tophalf push up bar-resize:screenSizeY/2&#10;alias bottomhalf push down bar-resize:screenSizeY/2&#10;alias fullscreen push up bar-resize:screenSizeY&#10;&#10;# Push Bindings&#10;bind right:ctrl;cmd  $&#123;righthalf&#125;&#10;bind left:ctrl;cmd   $&#123;lefthalf&#125;&#10;bind up:ctrl;cmd     chain $&#123;tophalf&#125; | $&#123;fullscreen&#125;&#10;bind down:ctrl;cmd   $&#123;bottomhalf&#125;&#10;&#10;# Focus Bindings&#10;bind right:cmd,alt    focus right&#10;bind left:cmd,alt      focus left&#10;bind up:cmd,alt        focus up&#10;bind down:cmd,alt      focus down&#10;#bind up:cmd   focus behind&#10;#bind down:cmd focus behind&#10;&#10;# Layout&#39;s directive - layout name &#39;app name&#39;:OPTIONS operations&#10;layout javascriptLayout &#39;Google Chrome&#39;:REPEAT $&#123;lefthalf&#125;&#10;layout javascriptLayout &#39;Sublime Text&#39;:REPEAT $&#123;righthalf&#125;&#10;&#10;layout mailLayout &#39;Mail&#39;:REPEAT $&#123;fullscreen&#125;&#10;&#10;layout spotifyLayout &#39;Spotify&#39;:REPEAT $&#123;fullscreen&#125;&#10;&#10;layout iTermLayout &#39;Google Chrome&#39;:REPEAT $&#123;lefthalf&#125;&#10;layout iTermLayout &#39;iTerm&#39;:REPEAT $&#123;righthalf&#125;&#10;&#10;# Layout Bindings&#10;bind 1:cmd layout javascriptLayout&#10;bind 2:cmd layout iTermLayout&#10;bind 3:cmd layout mailLayout&#10;bind 4:cmd layout spotifyLayout</span><br></pre></td></tr></table></figure>
 <h3 id="6-_Embrace_Dark_Mode!!!">6. Embrace Dark Mode!!!<a id="DarkMode" class="anchor"></a></h3><p>I never “got” dark mode UNTIL I started spending long days staring at text.</p>
 <p>Here are some dark mode tweaks I recommend:</p>
-<p><ul><br>    <li>Sublime Text</li></ul></p>
 <ul>
-<li><p>Install <a href="https://github.com/buymeasoda/soda-theme" target="_blank" rel="external">Soda Dark theme</a>. Note: this goes further than a normal dark color scheme.</p>
-</li><li>Mac OS X</li>
-
-<li><p>Select dark menu bar: <em>Preferences &gt; General &gt; Use dark menu bar and Dock</em> and then…</p>
+<li>Sublime Text<ul>
+<li>Install <a href="https://github.com/buymeasoda/soda-theme" target="_blank" rel="external">Soda Dark theme</a>. Note: this goes further than a normal dark color scheme.</li>
+</ul>
 </li>
-<li><p>Choose matching dark wallpaper - <a href="http://www.reddit.com/r/osx/comments/2jpzoc/yosemite_tip_dark_mode_reduced_transparency_11/" target="_blank" rel="external">Reddit Link</a></p>
-</li><li>Google Chrome</li>
-
-<li><p>Install dark theme: <a href="https://chrome.google.com/webstore/detail/slinky-elegant/bmanlajnpdncmhfkiccmbgeocgbncfln" target="_blank" rel="external">Slinky Elegant</a></p>
+<li>Mac OS X<ul>
+<li>Select dark menu bar: <em>Preferences &gt; General &gt; Use dark menu bar and Dock</em> and then…</li>
+<li>Choose matching dark wallpaper - <a href="http://www.reddit.com/r/osx/comments/2jpzoc/yosemite_tip_dark_mode_reduced_transparency_11/" target="_blank" rel="external">Reddit Link</a></li>
+</ul>
+</li>
+<li>Google Chrome<ul>
+<li>Install dark theme: <a href="https://chrome.google.com/webstore/detail/slinky-elegant/bmanlajnpdncmhfkiccmbgeocgbncfln" target="_blank" rel="external">Slinky Elegant</a></li>
+</ul>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/super-javascript-developer-tools/" data-id="cicl6qpqa00014bpf4aspj85u" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/super-javascript-developer-tools/" data-id="cicl8qbys0001tppfisju33vw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
