@@ -13,7 +13,7 @@ Why learn Design Patterns?A pattern is a reusabl">
 <meta property="og:site_name" content="Technikyle">
 <meta property="og:description" content="I recently spent time refreshing myself on some software design patterns. I was specifically interested in how they should be applied using Javascript.
 Why learn Design Patterns?A pattern is a reusabl">
-<meta property="og:updated_time" content="2015-08-11T19:53:24.000Z">
+<meta property="og:updated_time" content="2015-08-11T21:24:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript Design Patterns">
 <meta name="twitter:description" content="I recently spent time refreshing myself on some software design patterns. I was specifically interested in how they should be applied using Javascript.
@@ -88,7 +88,7 @@ Why learn Design Patterns?A pattern is a reusabl">
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        7
+        8
         <span>posts</span>
       </div>
       <div class="article-info-block">
@@ -158,12 +158,12 @@ Why learn Design Patterns?A pattern is a reusabl">
 <h2 id="The_Revealing_Module_Pattern">The Revealing Module Pattern</h2><p>Let’s take a look at a slightly improved version - Christian Heilmann’s Revealing Module pattern.</p>
 <p>The result of his efforts was an updated pattern where we would simply define all of our functions and variables in the private scope and return an anonymous object with pointers to the private functionality we wished to reveal as public.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myRevealingModule = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> privateCounter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    privateCounter++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">publicFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    publicIncrement();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">publicIncrement</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    privateFunction();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">publicGetCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> privateCounter;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Reveal public pointers to private functions and properties</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    start: publicFunction,</span><br><span class="line">    increment: publicIncrement,</span><br><span class="line">    count: publicGetCount</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">myRevealingModule.start();</span><br></pre></td></tr></table></figure>
-<h2 id="The_Singleton_Pattern">The Singleton Pattern</h2><p>The Singleton pattern is thus known because it restricts instantiation of a class to a single object. Classically, the Singleton pattern can be implemented by creating a class with a method that creates a new instance of the class if one doesn’t exist. In the event of an instance already existing, it simply returns a reference to that object.</p>
+<h2 id="The_Singleton_Pattern">The Singleton Pattern</h2><p>The Singleton pattern restricts instantiation of a class to a single object. In the event of an instance already existing, it simply returns a reference to that object.</p>
 <p>Singletons differ from static classes (or objects) as we can delay their initialization, generally because they require some information that may not be available during initialization time. They don’t provide a way for code that is unaware of a previous reference to them to easily retrieve them. This is because it is neither the object or “class” that’s returned by a Singleton, it’s a structure. Think of how closured variables aren’t actually closures - the function scope that provides the closure is the closure.</p>
 <p>In JavaScript, Singletons serve as a shared resource namespace which isolate implementation code from the global namespace so as to provide a single point of access for functions.</p>
 <p>We can implement a Singleton as follows:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mySingleton = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Instance stores a reference to the Singleton</span></span><br><span class="line">  <span class="keyword">var</span> instance;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Private methods and variables</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">"I am private"</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> privateVariable = <span class="string">"Im also private"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> privateRandomNumber = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="comment">// Public methods and variables</span></span><br><span class="line">      publicMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">"The public can see me!"</span> );</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      publicProperty: <span class="string">"I am also public"</span>,</span><br><span class="line"></span><br><span class="line">      getRandomNumber: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> privateRandomNumber;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// Get the Singleton instance if one exists or create one if it doesn't</span></span><br><span class="line">    getInstance: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> ( !instance ) &#123;</span><br><span class="line">        instance = init();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> singleA = mySingleton.getInstance();</span><br><span class="line"><span class="keyword">var</span> singleB = mySingleton.getInstance();</span><br><span class="line"><span class="built_in">console</span>.log( singleA.getRandomNumber() === singleB.getRandomNumber() ); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>It is important to note the difference between a static instance of a class (object) and a Singleton: whilst a Singleton can be implemented as a static instance, it can also be constructed lazily, without the need for resources nor memory until this is actually needed.</p>
+<p>It is important to note the difference between a static instance of a class (object) and a Singleton: a Singleton can be implemented as a static instance, but it can also be constructed lazily, without the need for resources nor memory until this is actually needed.</p>
 <p>In practice, the Singleton pattern is useful when exactly one object is needed to coordinate others across a system.</p>
 <h2 id="The_Observer_Pattern">The Observer Pattern</h2><p>The Observer is a design pattern where an object (known as a subject) maintains a list of objects depending on it (observers), automatically notifying them of any changes to state.</p>
 <p><strong>Motivation behind using the Observer pattern is where we need to maintain consistency between related objects without making classes tightly coupled. For example, when an object needs to be able to notify other objects without making assumptions regarding those objects.</strong></p>
@@ -175,7 +175,7 @@ Why learn Design Patterns?A pattern is a reusabl">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/Javascript-Design-Patterns/" data-id="cid7rnmo8000jg0pf2al0e8wg" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/Javascript-Design-Patterns/" data-id="cid7vignv000nrapf3wsn050n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
@@ -185,6 +185,15 @@ Why learn Design Patterns?A pattern is a reusabl">
   
     
 <nav id="article-nav">
+  
+    <a href="/Javascript-Pseudo-Classical-Subclassing/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Javascript Pseudo-Classical Subclassing
+        
+      </div>
+    </a>
   
   
     <a href="/custom-mac-terminal-bash-colors/" id="article-nav-older" class="article-nav-link-wrap">
@@ -207,6 +216,23 @@ Why learn Design Patterns?A pattern is a reusabl">
     <h3 class="widget-title">recents</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Javascript-Pseudo-Classical-Subclassing/" class="thumbnail">
+  
+    <span style="background-image:url(/subclass.gif)" alt="Javascript Pseudo-Classical Subclassing" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/Javascript-Pseudo-Classical-Subclassing/" class="title">Javascript Pseudo-Classical Subclassing</a></p>
+              <p class="item-date"><time datetime="2015-08-11T19:52:53.000Z" itemprop="datePublished">2015-08-11</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -276,23 +302,6 @@ Why learn Design Patterns?A pattern is a reusabl">
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/expressjs-session-tutorial/" class="thumbnail">
-  
-    <span style="background-image:url(/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/expressjs-session-tutorial/" class="title">ExpressJS Session Tutorial</a></p>
-              <p class="item-date"><time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015-06-09</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -302,7 +311,7 @@ Why learn Design Patterns?A pattern is a reusabl">
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -311,7 +320,7 @@ Why learn Design Patterns?A pattern is a reusabl">
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

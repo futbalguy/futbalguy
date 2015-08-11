@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Hack Reactor | Technikyle</title>
+  <title>Javascript Pseudo-Classical Subclassing | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Technikyle">
-<meta property="og:url" content="http://futbalguy.github.io/tags/Hack-Reactor/index.html">
+  <meta name="description" content="Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript Pseudo-Classical Subclassing">
+<meta property="og:url" content="http://futbalguy.github.io/Javascript-Pseudo-Classical-Subclassing/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description">
+<meta property="og:description" content="Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class">
+<meta property="og:updated_time" content="2015-08-11T21:41:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Technikyle">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Javascript Pseudo-Classical Subclassing">
+<meta name="twitter:description" content="Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class">
   
   
     <link rel="icon" href="favicon.png">
@@ -98,223 +99,77 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-tag-wrap">
-      <span class="archive-tag">#Hack Reactor</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-Javascript-Pseudo-Classical-Subclassing" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/Javascript-Pseudo-Classical-Subclassing/" class="thumbnail">
-  
-    <span style="background-image:url(/subclass.gif)" alt="Javascript Pseudo-Classical Subclassing" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
       
+	
+		<img src="/subclass.gif" class="article-banner">
+	
+
+
+
+    
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Javascript-Pseudo-Classical-Subclassing/">Javascript Pseudo-Classical Subclassing</a>
+    <h1 class="article-title" itemprop="name">
+      Javascript Pseudo-Classical Subclassing
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/Javascript-Pseudo-Classical-Subclassing/">
-      <time datetime="2015-08-11T19:52:53.000Z" itemprop="datePublished">2015 Aug 11</time>
+      <time datetime="2015-08-11T19:52:53.000Z" itemprop="datePublished">2015-08-11</time>
     </a>
   </div>
 
 
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/Javascript-Design-Patterns/" class="thumbnail">
-  
-    <span style="background-image:url(/designpatterns.jpg)" alt="Javascript Design Patterns" class="thumbnail-image"></span>
-  
-</a>
+        <p>Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class AND subclasses.</p>
+<a id="more"></a>
+<h2 id="Pseudo-Classical_Instantiation">Pseudo-Classical Instantiation</h2><p>First, let’s create a class that we will later sub-class:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"> age, name </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">" is "</span> + <span class="keyword">this</span>.age + <span class="string">" years old!"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> animal1 = <span class="keyword">new</span> Animal(<span class="number">3</span>, <span class="string">'buddy'</span>);</span><br><span class="line">animal1.toString(); <span class="comment">//"buddy is 3 years old!""</span></span><br></pre></td></tr></table></figure>
+<h2 id="Pseudo-Classical_Subclassing">Pseudo-Classical Subclassing</h2><p>Now, we need to find a way to subclass the Animal class such that the subclass to Animal’s properties, as well as access to the prototype chain methods.</p>
+<p>Here is the optimal way to sub-class and keeping the prototype chain correctly up-to-date</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Dog = <span class="function"><span class="keyword">function</span>(<span class="params"> age, name </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//This is giving Dog access to the Animal properties within the Animal constructor function (but not the Parent prototype methods yet).</span></span><br><span class="line">  Animal.call(<span class="keyword">this</span>, age, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This is pointing Dog's empty prototype object to the Animal prototype object, by way of the Dog prototype object.</span></span><br><span class="line">Dog.prototype = <span class="built_in">Object</span>.create(Animal.prototype);</span><br><span class="line"></span><br><span class="line"><span class="comment">//This is needed because the previous line overwrote Dog's prototype constructor property improperly to Animal. We must reset it back to Dog.</span></span><br><span class="line">Dog.protoytpe.constructor = Dog.prototype;</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.name + <span class="string">' barks!'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> buddy = <span class="keyword">new</span> Dog( <span class="number">3</span>, <span class="string">'buddy'</span>);</span><br></pre></td></tr></table></figure>
+      
     </div>
-    
-    <header class="archive-article-header">
+    <footer class="article-footer">
+      <a data-url="http://futbalguy.github.io/Javascript-Pseudo-Classical-Subclassing/" data-id="cid7vignt000jrapfu0hok6wd" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Javascript-Design-Patterns/">Javascript Design Patterns</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hack-Reactor/">Hack Reactor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/Javascript-Design-Patterns/">
-      <time datetime="2015-08-11T16:20:49.000Z" itemprop="datePublished">2015 Aug 11</time>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Javascript-Design-Patterns/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Javascript Design Patterns</div>
     </a>
-  </div>
+  
+</nav>
 
-
-      
-    </header>
-  </div>
+  
 </article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/custom-mac-terminal-bash-colors/" class="thumbnail">
-  
-    <span style="background-image:url(/ScreenShotAfter.png)" alt="Terminal Bash Command Line &amp; Colors" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/custom-mac-terminal-bash-colors/">Terminal Bash Command Line &amp; Colors</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/custom-mac-terminal-bash-colors/">
-      <time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015 Jul 14</time>
-    </a>
-  </div>
 
 
-      
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/storing-images-in-firebase/" class="thumbnail">
-  
-    <span style="background-image:url(/firebase.jpg)" alt="Storing Images In Firebase" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/storing-images-in-firebase/">Storing Images In Firebase</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/storing-images-in-firebase/">
-      <time datetime="2015-07-03T01:15:31.000Z" itemprop="datePublished">2015 Jul 2</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/bookshelf-js-orm/" class="thumbnail">
-  
-    <span style="background-image:url(/bookshelf.png)" alt="Bookshelf.js Javascript ORM and SQL" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/bookshelf-js-orm/">Bookshelf.js Javascript ORM and SQL</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/bookshelf-js-orm/">
-      <time datetime="2015-06-20T04:18:08.000Z" itemprop="datePublished">2015 Jun 19</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/expressjs-session-tutorial/" class="thumbnail">
-  
-    <span style="background-image:url(/express.png)" alt="ExpressJS Session Tutorial" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/expressjs-session-tutorial/">ExpressJS Session Tutorial</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/expressjs-session-tutorial/">
-      <time datetime="2015-06-10T00:13:32.000Z" itemprop="datePublished">2015 Jun 9</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-    
-    </div></section>
-    
-      <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/tags/Hack-Reactor/page/2/">2</a><a class="extend next" rel="next" href="/tags/Hack-Reactor/page/2/">Next &raquo;</a>
-      </nav>
-    </section>
+</section>
       
         <aside id="sidebar">
   
