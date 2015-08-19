@@ -3,23 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Terminal Bash Command Line &amp; Colors | Technikyle</title>
+  <title>Tag: iOS | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
-The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Terminal Bash Command Line & Colors">
-<meta property="og:url" content="http://futbalguy.github.io/custom-mac-terminal-bash-colors/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Technikyle">
+<meta property="og:url" content="http://futbalguy.github.io/tags/iOS/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
-The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
-<meta property="og:image" content="http://futbalguy.github.io/ScreenShotBefore.png">
-<meta property="og:image" content="http://futbalguy.github.io/ScreenShotAfter.png">
-<meta property="og:updated_time" content="2015-08-18T20:40:35.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Terminal Bash Command Line & Colors">
-<meta name="twitter:description" content="Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).
-The default mostly-white wall of text can be hard on the eyes and actually kind of dif">
+<meta name="twitter:title" content="Technikyle">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="favicon.png">
@@ -104,94 +98,49 @@ The default mostly-white wall of text can be hard on the eyes and actually kind 
 </aside>
 
       
-      <section id="main"><article id="post-custom-mac-terminal-bash-colors" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+      <section id="main">
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#iOS</span>
+    </div>
+    <div class="archives">
     
-      
-	
-		<img src="/ScreenShotAfter.png" class="article-banner">
-	
-
-
-
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
-    
-    
-      <header class="article-header">
-        
+    <div class="archive-article-thumbnail">
+      <a href="/SceneKit/" class="thumbnail">
   
-    <h1 class="article-title" itemprop="name">
-      Terminal Bash Command Line &amp; Colors
+    <span style="background-image:url(/scenekit.png)" alt="SceneKit" class="thumbnail-image"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/SceneKit/">SceneKit</a>
     </h1>
   
 
-        <div class="article-meta">
-          
-  <div class="article-date">
+      
+        
+  <div class="archive-article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/custom-mac-terminal-bash-colors/">
-      <time datetime="2015-07-15T03:53:20.000Z" itemprop="datePublished">2015-07-14</time>
+    <a href="/SceneKit/">
+      <time datetime="2015-08-19T04:18:08.000Z" itemprop="datePublished">2015 Aug 18</time>
     </a>
   </div>
 
 
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-                
-        <p>Software developers spend a significant amount of time in Terminal (i.e. file systeming, giting, bash scripting).</p>
-<p>The default mostly-white wall of text can be hard on the eyes and actually kind of difficult to read. Wouldn’t it be nice if you could more clearly view the terminal logs?</p>
-<p>YES, so let’s make some changes that will increase producitivity and asthetics at the same time!</p>
-<a id="more"></a>
-<h2 id="Customizing_Your_Bash_Profile">Customizing Your Bash Profile</h2><p>First, you need to learn a little about bash. Bash is a Unix shell and command language and it is what you see when you load Terminal on your Mac. We will be customizing your bash Profile.</p>
-<p>The first step is to go to start Terminal, navigate to your home directory, and open .bash_profile in a text editor.</p>
-<h5 id="terminal">terminal</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//navigate to home directory and&#10;//open .bash_profile in a text editor (i.e. sublime)&#10;cd ~&#10;sublime .bash_profile</span><br></pre></td></tr></table></figure>
-<p>Second, you can customize the bash prompt to show full filepath, hide username, and show your current git branch name (if applicable). We also add a new line to seperate the prompt from the prior command.</p>
-<h5 id="-bash_profile">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n\w\ $(parse_git_branch) &amp;quot;</span><br></pre></td></tr></table></figure>
-<p>Next, you can customize colors to better differentiate different bash info. ANSI colors are assigned to variables at the top of the bash script.</p>
-<h5 id="-bash_profile-1">.bash_profile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># High Intensty Colors</span></span><br><span class="line">GREENH=<span class="string">'\[&amp;#92;&amp;#48;33[0;92m\]'</span> <span class="comment"># Green</span></span><br><span class="line">BLUEH=<span class="string">'\[&amp;#92;&amp;#48;33[0;94m\]'</span> <span class="comment"># Blue</span></span><br><span class="line"></span><br><span class="line">NC=<span class="string">'\[&amp;#92;&amp;#48;33[0m\]'</span> <span class="comment"># No color</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Git branch in prompt.</span></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">    git branch <span class="number">2</span>&amp;gt; /dev/null | sed <span class="operator">-e</span> <span class="string">'/^[^*]/d'</span> <span class="operator">-e</span> <span class="string">'s/* \(.*\)/(\1)/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#custom bash prompt with colors</span></span><br><span class="line"><span class="built_in">export</span> PS1=&amp;quot;\n<span class="variable">$&#123;BLUEH&#125;</span>\w<span class="variable">$&#123;GREENH&#125;</span>\$(parse_git_branch)<span class="variable">$&#123;NC&#125;</span> &amp;quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">#CLICOLOR will turn colors on or off.</span></span><br><span class="line"><span class="built_in">export</span> CLICOLOR=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#LS_COLORS is not required, and will let you customize the colors</span></span><br><span class="line"><span class="built_in">export</span> LSCOLORS=ExFxBxDxCxegedabagacad</span><br></pre></td></tr></table></figure>
-<h2 id="Behold_The_Difference">Behold The Difference</h2><h4 id="Before">Before</h4><p><img src="/ScreenShotBefore.png" alt=""></p>
-<h4 id="AFTER!!!!">AFTER!!!!</h4><p><img src="/ScreenShotAfter.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/custom-mac-terminal-bash-colors/" data-id="cidj5nfnh000pnbpfwk646pz9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bash/">Bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/Javascript-Design-Patterns/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Software Design Patterns
-        
-      </div>
-    </a>
-  
-  
-    <a href="/storing-images-in-firebase/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Storing Images In Firebase</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   
