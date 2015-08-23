@@ -14,8 +14,8 @@ I am going to walk through the setup of a simple scene to show the power">
 <meta property="og:description" content="With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.
 I am going to walk through the setup of a simple scene to show the power">
 <meta property="og:image" content="http://futbalguy.github.io/SceneGraph1.png">
-<meta property="og:image" content="http://futbalguy.github.io/cubeScreenshot.png">
-<meta property="og:updated_time" content="2015-08-23T16:21:28.000Z">
+<meta property="og:image" content="http://futbalguy.github.io/cube.png">
+<meta property="og:updated_time" content="2015-08-23T16:26:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SceneKit Tutorial">
 <meta name="twitter:description" content="With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.
@@ -109,7 +109,7 @@ I am going to walk through the setup of a simple scene to show the power">
     
       
 	
-		<img src="/cubeScreenshot.png" class="article-banner">
+		<img src="/cube.png" class="article-banner">
 	
 
 
@@ -168,12 +168,12 @@ I am going to walk through the setup of a simple scene to show the power">
 <p>Next, add a material to the cube and the plane. For this example, you are going to give the cube and the plane a solid color, red and green respectively. Add the following lines to the viewDidLoad method to create these materials.</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    planeNode.position = <span class="type">SCNVector3</span>(x: <span class="number">0</span>, y: -<span class="number">0.5</span>, z: <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> greenMaterial = <span class="type">SCNMaterial</span>()</span><br><span class="line">    greenMaterial.diffuse.contents = <span class="type">UIColor</span>.greenColor()</span><br><span class="line">    cubeGeometry.materials = [greenMaterial]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> blueMaterial = <span class="type">SCNMaterial</span>()</span><br><span class="line">    blueMaterial.diffuse.contents = <span class="type">UIColor</span>.blueColor()</span><br><span class="line">    planeGeometry.materials = [blueMaterial]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> constraint = <span class="type">SCNLookAtConstraint</span>(target: cubeNode)</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="The_Final_Scene!">The Final Scene!</h2><p>After building and running, your scene should like this:</p>
-<p><img src="/cubeScreenshot.png" alt="Your Simple SceneKit Scene"></p>
+<p><img src="/cube.png" alt="Your Simple SceneKit Scene"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/SceneKit/" data-id="cidopcq3c0011j4pf8gt3qtxx" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/SceneKit/" data-id="cidopjj7c0011qypff1o7ixsy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mobile-Development/">Mobile Development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SceneKit/">SceneKit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -211,7 +211,7 @@ I am going to walk through the setup of a simple scene to show the power">
             <div class="item-thumbnail">
               <a href="/SceneKit/" class="thumbnail">
   
-    <span style="background-image:url(/cubeScreenshot.png)" alt="SceneKit Tutorial" class="thumbnail-image"></span>
+    <span style="background-image:url(/cube.png)" alt="SceneKit Tutorial" class="thumbnail-image"></span>
   
 </a>
             </div>
