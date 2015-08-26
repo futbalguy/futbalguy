@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/8 | Technikyle</title>
+  <title>Objective-C Blocks Explained | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Technikyle">
-<meta property="og:url" content="http://futbalguy.github.io/archives/2015/08/index.html">
+  <meta name="description" content="Blocks are commonly used for asynchronous programming in Obective-C. While it is easy to start using them, understanding their nuances is more complicated. This post will explain why and how they are">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Blocks Explained">
+<meta property="og:url" content="http://futbalguy.github.io/objective-c-blocks-explained/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description">
+<meta property="og:description" content="Blocks are commonly used for asynchronous programming in Obective-C. While it is easy to start using them, understanding their nuances is more complicated. This post will explain why and how they are">
+<meta property="og:updated_time" content="2015-08-26T02:39:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Technikyle">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Objective-C Blocks Explained">
+<meta name="twitter:description" content="Blocks are commonly used for asynchronous programming in Obective-C. While it is easy to start using them, understanding their nuances is more complicated. This post will explain why and how they are">
   
   
     <link rel="icon" href="favicon.png">
@@ -98,151 +99,96 @@
 </aside>
 
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2015" class="archive-year">2015</a>
-      </div>
-      <section class="archives-wrap">
-        <div class="archives">
+      <section id="main"><article id="post-objective-c-blocks-explained" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/objective-c-blocks-explained/" class="thumbnail">
-  
-    <span style="background-image:url(/blocks_2x.png)" alt="Objective-C Blocks Explained" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
       
+	
+		<img src="/blocks_2x.png" class="article-banner">
+	
+
+
+
+    
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/objective-c-blocks-explained/">Objective-C Blocks Explained</a>
+    <h1 class="article-title" itemprop="name">
+      Objective-C Blocks Explained
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/objective-c-blocks-explained/">
-      <time datetime="2015-08-26T04:18:08.000Z" itemprop="datePublished">Aug 25</time>
+      <time datetime="2015-08-26T04:18:08.000Z" itemprop="datePublished">2015-08-25</time>
     </a>
   </div>
 
 
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
+          
+        </div>
+      </header>
     
-    <div class="archive-article-thumbnail">
-      <a href="/SceneKit/" class="thumbnail">
-  
-    <span style="background-image:url(/cube.png)" alt="SceneKit Tutorial" class="thumbnail-image"></span>
-  
-</a>
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>Blocks are commonly used for asynchronous programming in Obective-C. While it is easy to start using them, understanding their nuances is more complicated. This post will explain why and how they are typically used in an iOS app!</p>
+<a id="more"></a>
+<h2 id="Block_Basics">Block Basics</h2><p>Blocks are Objective-C’s anonymous functions. They let you pass statements between objects as you would data, which is often more intuitive than referencing functions defined elsewhere. </p>
+<p>Blocks are implemented as closures, which means they capture the surrounding state. <strong>You need to make sure your block is written with this in mind!</strong></p>
+<h2 id="Building_Blocks">Building Blocks</h2><p>Blocks are used very similiarly to functions. You can declare a block variable, define the block, and then call the block as if it were a function:</p>
+<h5 id="main-m">main.m</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &#60;Foundation/Foundation.h&#62;&#10;&#10;int main(int argc, const char * argv[]) &#123;&#10;    @autoreleasepool &#123;&#10;        // Declare the block variable&#10;        double (^milesPerHour)(double miles, double hours);&#10;        &#10;        // Create and assign the block&#10;        milesPerHour = ^double(double miles, double hours) &#123;&#10;            return miles / hours;&#10;        &#125;;&#10;        // Call the block&#10;        double mph = milesPerHour(120, 2.0);&#10;        &#10;        NSLog(@&#34;A car that drives 120 miles in 2.0 hours is &#34;&#10;              @&#34;travelling at %.2f mph.&#34;, mph);&#10;    &#125;&#10;    return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>The caret (^) is used to mark the milesPerHour variable as a block. Like a function declaration, you need to include the return type and parameter types so the compiler can enforce type safety. The ^ behaves in a similar manner to the asterisk before a pointer (e.g., int *aPointer) in that it is only required when declaring the block, after which you can use it like a normal variable.</p>
+<p>The block itself is essentially a function definition—without the function name. The ^double(double rate, double time) signature begins a block literal that returns a double and has two parameters that are also doubles (the return type can be omitted if desired). Arbitrary statements can go inside the curly braces ({}), just like a normal function.</p>
+<p>After assigning the block literal to the milesPerHour variable, we can call that variable as though it were a function.</p>
+<p>So far, it might seem like blocks are just a complicated way of defining functions. <strong>But, the fact that they’re implemented as closures opens the door to exciting new programming opportunities.</strong></p>
+<h2 id="Closures">Closures</h2><p>Inside of a block, you have access to same data as in a normal function: local variables, parameters passed to the block, and global variables/functions. But, blocks are implemented as closures, which means that you also have access to non-local variables. Non-local variables are variables defined in the block’s enclosing lexical scope, but outside the block itself. For example, getFullCarName can reference the make variable defined before the block:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *make = @&#34;Honda&#34;;&#10;NSString *(^getFullCarName)(NSString *) = ^(NSString *model) &#123;&#10;    return [make stringByAppendingFormat:@&#34; %@&#34;, model];&#10;&#125;;&#10;NSLog(@&#34;%@&#34;, getFullCarName(@&#34;Accord&#34;));    // Honda Accord</span><br></pre></td></tr></table></figure>
+<p>Non-local variables are copied and stored with the block as const variables, which means they are read-only. Trying to assign a new value to the make variable from inside the block will throw a compiler error.</p>
+<p>The fact that non-local variables are copied as constants means that a block doesn’t just have access to non-local variables—it creates a snapshot of them. Non-local variables are frozen at whatever value they contain when the block is defined, and the block always uses that value, even if the non-local variable changes later on in the program. Watch what happens when we try to change the make variable after creating the block:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *make = @&#34;Honda&#34;;&#10;NSString *(^getFullCarName)(NSString *) = ^(NSString *model) &#123;&#10;    return [make stringByAppendingFormat:@&#34; %@&#34;, model];&#10;&#125;;&#10;NSLog(@&#34;%@&#34;, getFullCarName(@&#34;Accord&#34;));    // Honda Accord&#10;&#10;// Try changing the non-local variable (it won&#39;t change the block)&#10;make = @&#34;Porsche&#34;;&#10;NSLog(@&#34;%@&#34;, getFullCarName(@&#34;911 Turbo&#34;)); // Honda 911 Turbo</span><br></pre></td></tr></table></figure>
+<p>Closures are an incredibly convenient way to work with the surrounding state, as it eliminates the need to pass in extra values as parameters—you simply use non-local variables as if they were defined in the block itself.</p>
+<p>Freezing non-local variables as constant values is a safe default behavior in that it prevents you from accidentally changing them from within the block; however, there are occasions when this is desirable. You can override the const copy behavior by declaring a non-local variable with the __block storage modifier:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__block NSString *make = @&#34;Honda&#34;;</span><br></pre></td></tr></table></figure>
+<p>This tells the block to capture the variable by reference, creating a direct link between the make variable outside the block and the one inside the block. You can now assign a new value to make from outside the block, and it will be reflected in the block, and vice versa.</p>
+<h2 id="Using_Blocks_as_Method_Parameters">Using Blocks as Method Parameters</h2><p>Storing blocks in variables is occasionally useful, but in the real world, they’re more likely to be used as method parameters. They solve the same problem as function pointers, but the fact that they can be defined inline makes the resulting code much easier to read.</p>
+<p><em>FYI - A function pointer is part of the C language, but you won’t see them used much. The problem is you can’t use a function pointer in an Objective-C method call.</em></p>
+<p>As you can see in the main() function included below, block literals can be defined within a method invocation. While it might take a second to parse the syntax, this is still much more intuitive than creating a dedicated top-level function to define the withVariableSpeed parameter.</p>
+<p>This is a simple example of the versatility of blocks, but the standard frameworks are chock-full of other use cases. NSArray lets you sort elements with a block via the sortedArrayUsingComparator: method, and UIView uses a block to define the final state of an animation via the animateWithDuration:animations: method.</p>
+<h2 id="Summary">Summary</h2><p>Blocks provide much the same functionality as C functions, but they are much more intuitive to work with (after you get used to the syntax). The fact that they can be defined inline makes it easy to use them inside of method calls, and since they are closures, it’s possible to capture the value of surrounding variables with literally no additional effort.</p>
+
+      
     </div>
-    
-    <header class="archive-article-header">
+    <footer class="article-footer">
+      <a data-url="http://futbalguy.github.io/objective-c-blocks-explained/" data-id="cids6b0p1000ggfs43bpswcj7" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/SceneKit/">SceneKit Tutorial</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mobile-Development/">Mobile Development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/SceneKit/">
-      <time datetime="2015-08-19T04:18:08.000Z" itemprop="datePublished">Aug 18</time>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/SceneKit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SceneKit Tutorial</div>
     </a>
-  </div>
+  
+</nav>
 
-
-      
-    </header>
-  </div>
+  
 </article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/Javascript-Pseudo-Classical-Subclassing/" class="thumbnail">
-  
-    <span style="background-image:url(/subclass.gif)" alt="Javascript Pseudo-Classical Subclassing" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Javascript-Pseudo-Classical-Subclassing/">Javascript Pseudo-Classical Subclassing</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/Javascript-Pseudo-Classical-Subclassing/">
-      <time datetime="2015-08-11T19:52:53.000Z" itemprop="datePublished">Aug 11</time>
-    </a>
-  </div>
 
 
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/Javascript-Design-Patterns/" class="thumbnail">
-  
-    <span style="background-image:url(/designpatterns.jpg)" alt="Software Design Patterns" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Javascript-Design-Patterns/">Software Design Patterns</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/Javascript-Design-Patterns/">
-      <time datetime="2015-08-11T16:20:49.000Z" itemprop="datePublished">Aug 11</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  </section>
+</section>
       
         <aside id="sidebar">
   
