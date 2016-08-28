@@ -5,19 +5,16 @@
   
   <title>Server Side Swift with Vapor | Technikyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I spent the last day adding an image capture feature to a project - Watchlier.
-We picked Firebase in order to offload work from our own server. We also just wanted to check out Firebase after hearing">
+  <meta name="description" content="More to come…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Server Side Swift with Vapor">
 <meta property="og:url" content="http://futbalguy.github.io/Server-Side-Swift/index.html">
 <meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="I spent the last day adding an image capture feature to a project - Watchlier.
-We picked Firebase in order to offload work from our own server. We also just wanted to check out Firebase after hearing">
-<meta property="og:updated_time" content="2016-08-28T05:47:15.000Z">
+<meta property="og:description" content="More to come…">
+<meta property="og:updated_time" content="2016-08-28T05:50:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Server Side Swift with Vapor">
-<meta name="twitter:description" content="I spent the last day adding an image capture feature to a project - Watchlier.
-We picked Firebase in order to offload work from our own server. We also just wanted to check out Firebase after hearing">
+<meta name="twitter:description" content="More to come…">
   
   
     <link rel="icon" href="favicon.png">
@@ -142,36 +139,12 @@ We picked Firebase in order to offload work from our own server. We also just wa
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>I spent the last day adding an image capture feature to a project - <a href="http://watchlier.elasticbeanstalk.com/" target="_blank" rel="external">Watchlier</a>.</p>
-<p>We picked Firebase in order to offload work from our own server. We also just wanted to check out Firebase after hearing so many good things about its ease of use!</p>
-<p>I’m happy to report that getting up and running with Firebase is very fast and straight-forward! Head over to <a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a> and start a new account. They will provide you with a database for storing your information.</p>
-<a id="more"></a>
-<h4 id="Our-Stack"><a href="#Our-Stack" class="headerlink" title="Our Stack"></a>Our Stack</h4><ul>
-<li><a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a></li>
-<li><a href="https://www.firebase.com/" target="_blank" rel="external">Firebase</a></li>
-</ul>
-<h2 id="Firebase-Basics"><a href="#Firebase-Basics" class="headerlink" title="Firebase Basics"></a>Firebase Basics</h2><p>All Firebase database data is stored as JSON objects. When you add data to the JSON tree, it becomes a key in the existing JSON structure.</p>
-<p>However, <strong>Firebase databases have no native support for arrays</strong>. If we try to store an array, it really gets stored as an “object” with integers as the key names.</p>
-<p>You access the database with a URL and command it to do what you need. For example, if you want to save images from event #3, you could use the following URL path:<br><em><a href="https://yourAppName.firebaseio.com/events/3/images" target="_blank" rel="external">https://yourAppName.firebaseio.com/events/3/images</a></em></p>
-<h2 id="Interacting-With-Firebase"><a href="#Interacting-With-Firebase" class="headerlink" title="Interacting With Firebase"></a>Interacting With Firebase</h2><p>There are several options for interacting with Firebase:</p>
-<ol>
-<li>Firebase website</li>
-<li>RESTful API</li>
-<li>Firebase and AngularFire modules for Angular</li>
-</ol>
-<p>We chose Option 3 - Firebase and AngularFire modules - because it is the most Javascript-friendly.</p>
-<p><strong>PRO TIP:</strong> Image files for Firebase need to be in a string format (and must be under 10mb)! You’ll want to get the base64-encoded contents so you can store it as a string. The general approach is to convert the file locally (using FileReader).</p>
-<p>Now let’s see how it works in practice…</p>
-<h3 id="Javascript-and-Firebase"><a href="#Javascript-and-Firebase" class="headerlink" title="Javascript and Firebase"></a>Javascript and Firebase</h3><p>First step: install bower dependency manager and the bower components for Firebase and AngularFire</p>
-<h5 id="terminal"><a href="#terminal" class="headerlink" title="terminal"></a>terminal</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bower init</div><div class="line">bower install firebase --save</div><div class="line">bower install angularfire --save</div></pre></td></tr></table></figure>
-<p>Now instantiate a Firebase object with the URL path for your app and inject the firebase module into your app.</p>
-<h5 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fb = <span class="keyword">new</span> Firebase(<span class="string">'https://yourAppName.firebaseio.com/'</span>);</div><div class="line"></div><div class="line">angular.module(<span class="string">'app'</span>, [<span class="string">'firebase'</span>])</div><div class="line"></div><div class="line"><span class="comment">//...other code here...//</span></div></pre></td></tr></table></figure>
-<p>Next, inject Firebase into the Angular module where your controller is located. The <strong>$firebaseArray</strong> variable below comes from the AngularFire module.</p>
-<h5 id="controller-js"><a href="#controller-js" class="headerlink" title="controller.js"></a>controller.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'app.controllers'</span>, [<span class="string">'firebase'</span>])</div><div class="line"></div><div class="line">.controller(<span class="string">'AppCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope,$firebaseArray</span>) </span>&#123;</div><div class="line">  $scope.uploadImage = <span class="function"><span class="keyword">function</span>(<span class="params">imageData, incidentID</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> FR = <span class="keyword">new</span> FileReader();</div><div class="line"></div><div class="line">    FR.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> imageString = e.target.result;</div><div class="line"></div><div class="line">  <span class="comment">//create URL that refers to a specific event and add images as an array-like object to hold images</span></div><div class="line">      <span class="keyword">var</span> eventReference = fb.child(&amp;quot;events/&amp;quot; + incidentID);</div><div class="line">      <span class="keyword">var</span> syncArray = $firebaseArray(eventReference.child(&amp;quot;images&amp;quot;));</div><div class="line"></div><div class="line">      $scope.user = Auth.getUser();</div><div class="line">      <span class="keyword">var</span> username = $scope.user.username || <span class="string">''</span>;</div><div class="line">      <span class="keyword">var</span> submitDate = <span class="keyword">new</span> <span class="built_in">Date</span>().toISOString().slice(<span class="number">0</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line">      syncArray.$add(&#123;</div><div class="line">          imageString: imageString,</div><div class="line">          username: username,</div><div class="line">          submitDate: submitDate</div><div class="line">      &#125;)</div><div class="line">      .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="built_in">console</span>.log(<span class="string">'Image has been uploaded'</span>);</div><div class="line">      &#125;);</div><div class="line">    &#125;;</div><div class="line">    FR.readAsDataURL(imageData);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="comment">//...other code here...//</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        <p>More to come…</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/Server-Side-Swift/" data-id="cise74iu800042ts4lxvuuyzx" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/Server-Side-Swift/" data-id="cise75nau000044s439mxmcvx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vapor/">Vapor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
