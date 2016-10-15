@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://futbalguy.github.io/Javascript-Pseudo-Classical-Subclassing/index.html">
 <meta property="og:site_name" content="Technikyle">
 <meta property="og:description" content="Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class">
-<meta property="og:updated_time" content="2015-08-18T20:48:16.000Z">
+<meta property="og:updated_time" content="2016-10-15T01:16:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript Pseudo-Classical Subclassing">
 <meta name="twitter:description" content="Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class">
@@ -141,8 +141,7 @@
                 
         <p>Although Javascript does not include support for classes, there are Constructor patterns that allow us to achieve the same outcome. This post will discuss the optimal pattern for instantiating a class AND subclasses.</p>
 <a id="more"></a>
-<p>##Pseudo-Classical Instantiation</p>
-<p>First, let’s create a class that we will later sub-class:</p>
+<h2 id="Pseudo-Classical-Instantiation"><a href="#Pseudo-Classical-Instantiation" class="headerlink" title="Pseudo-Classical Instantiation"></a>Pseudo-Classical Instantiation</h2><p>First, let’s create a class that we will later sub-class:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"> age, name </span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Animal.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">" is "</span> + <span class="keyword">this</span>.age + <span class="string">" years old!"</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> animal = <span class="keyword">new</span> Animal(<span class="number">3</span>, <span class="string">'buddy'</span>);</div><div class="line">animal.toString(); <span class="comment">//"buddy is 3 years old!""</span></div></pre></td></tr></table></figure>
 <p>##Pseudo-Classical Subclassing</p>
 <p>Now, we need to find a way to subclass the Animal class such that the subclass to Animal’s properties, as well as access to the prototype chain methods.</p>
@@ -151,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/Javascript-Pseudo-Classical-Subclassing/" data-id="ciu92eo4g0001nbs4ee3oxfb6" class="article-share-link">Share</a>
+      <a data-url="http://futbalguy.github.io/Javascript-Pseudo-Classical-Subclassing/" data-id="ciuail7q000024cs4wawc9e6f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/">Design Patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
