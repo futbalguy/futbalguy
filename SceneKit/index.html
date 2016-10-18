@@ -1,151 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
 <head>
   <meta charset="utf-8">
-  
-  <title>SceneKit Tutorial | Technikyle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.
-I am going to walk through the setup of a simple scene to show the power">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SceneKit Tutorial">
-<meta property="og:url" content="http://futbalguy.github.io/SceneKit/index.html">
-<meta property="og:site_name" content="Technikyle">
-<meta property="og:description" content="With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.
-I am going to walk through the setup of a simple scene to show the power">
-<meta property="og:image" content="http://futbalguy.github.io/SceneGraph1.png">
-<meta property="og:image" content="http://futbalguy.github.io/cube.png">
-<meta property="og:updated_time" content="2015-08-23T16:28:13.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SceneKit Tutorial">
-<meta name="twitter:description" content="With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.
-I am going to walk through the setup of a simple scene to show the power">
-<meta name="twitter:image" content="http://futbalguy.github.io/SceneGraph1.png">
-  
-  
-    <link rel="icon" href="favicon.png">
-  
-  
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Technikyle</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  
-
-  
-
-  
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 </head>
+
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">Technikyle</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/.">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
+	
+  <header class="site-header navfixed-false">
+
+  <div class="container">
+      <h1><a href="/" title="Technikyle"></span> Technikyle</a></h1>
+      <nav class="site-header-nav" role="navigation">
         
       </nav>
-      
-        <nav id="sub-nav">
-          <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/profile.jpg"><i class="fa fa-caret-down"></i></a>
-          </div>
-        </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://futbalguy.github.io"></form>
-      </div>
-    </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/.">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://futbalguy.github.io"></form>
-        </td>
-      </tr>
-    </table>
   </div>
 </header>
 
-    <div class="outer">
-      
-        <aside id="profile">
-  <div class="inner profile-inner">
-    <div class="base-info profile-block">
-      <img id="avatar" src="/css/images/profile.jpg">
-      <h2 id="name">Kyle Rokita</h2>
-      <h3 id="title">Full-Stack + iOS Software Engineer</h3>
-      <span id="location"><i class="fa fa-map-marker"></i>San Francisco, CA</span>
-      <a id="follow" href="https://github.com/futbalguy/">FOLLOW</a>
-    </div>
-    <div class="article-info profile-block">
-      <div class="article-info-block">
-        11
-        <span>posts</span>
-      </div>
-      <div class="article-info-block">
-        16
-        <span>tags</span>
-      </div>
-    </div>
-    
-    
-  </div>
-</aside>
-
-      
-      <section id="main"><article id="post-SceneKit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
 	
-		<img src="/cube.png" class="article-banner">
-	
+    <section class="collection-head geopattern" data-pattern-id="SceneKit Tutorial" >
 
-
-
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      SceneKit Tutorial
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/SceneKit/">
-      <time datetime="2015-08-19T04:18:08.000Z" itemprop="datePublished">2015-08-18</time>
-    </a>
-  </div>
-
-
-          
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">SceneKit Tutorial</h1>
+            <div class="collection-info">
+             
+                <span class="meta-info">
+                    
+                            <span class="octicon octicon-calendar"></span>
+                            <time datetime="2015-08-19T04:18:08.000Z" itemprop="datePublished">2015-08-18</time>
+                    
+                </span>
+             
+            </div>
         </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <p>With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.</p>
+    </div>
+</section>
+	
+
+    <section class="container">
+
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content article-entry">
+                <p>With iOS 8, Apple released a fantastic framework - SceneKit - that makes it simple to setup a 3D scene in a matter of minutes.</p>
 <p>I am going to walk through the setup of a simple scene to show the power of this framework.</p>
 <p>You can find my completed example code at <a href="https://github.com/futbalguy/SceneKitTutorial" target="_blank" rel="external">my Github repo</a>.</p>
 <a id="more"></a>
@@ -173,186 +77,96 @@ I am going to walk through the setup of a simple scene to show the power">
 <p>After building and running, your scene should like this:</p>
 <p><img src="/cube.png" alt="Your Simple SceneKit Scene"></p>
 
-      
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component"></div>
+
+<script src="/js/share.min.js"></script>
+                </div>    
+            
+            
+                <div class="comments">
+                    
+                        
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//technikyle-com.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+                    
+
+                </div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                <h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SceneKit-Introduction"><span class="toc-text">SceneKit Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-Up-Your-UIViewController"><span class="toc-text">Setting Up Your UIViewController</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UIViewController"><span class="toc-text">UIViewController</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-Up-Your-Scene"><span class="toc-text">Setting Up Your Scene</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Materials"><span class="toc-text">Materials</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://futbalguy.github.io/SceneKit/" data-id="ciuail7q600044cs42btyhe6g" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mobile-Development/">Mobile Development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SceneKit/">SceneKit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/objective-c-blocks-explained/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Objective-C Blocks Explained
-        
-      </div>
-    </a>
-  
-  
-    <a href="/Javascript-Pseudo-Classical-Subclassing/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Javascript Pseudo-Classical Subclassing</div>
-    </a>
-  
-</nav>
-
-
-  
-</article>
-
-
 </section>
-      
-        <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Server-Side-Swift/" class="thumbnail">
-  
-    <span style="background-image:url(/vapor.png)" alt="Server Side Swift with Vapor" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/Server-Side-Swift/" class="title">Server Side Swift with Vapor</a></p>
-              <p class="item-date"><time datetime="2015-08-27T19:12:12.000Z" itemprop="datePublished">2015-08-27</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/objective-c-blocks-explained/" class="thumbnail">
-  
-    <span style="background-image:url(/blocks_2x.png)" alt="Objective-C Blocks Explained" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/objective-c-blocks-explained/" class="title">Objective-C Blocks Explained</a></p>
-              <p class="item-date"><time datetime="2015-08-26T04:18:08.000Z" itemprop="datePublished">2015-08-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/SceneKit/" class="thumbnail">
-  
-    <span style="background-image:url(/cube.png)" alt="SceneKit Tutorial" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/SceneKit/" class="title">SceneKit Tutorial</a></p>
-              <p class="item-date"><time datetime="2015-08-19T04:18:08.000Z" itemprop="datePublished">2015-08-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Javascript-Pseudo-Classical-Subclassing/" class="thumbnail">
-  
-    <span style="background-image:url(/subclass.gif)" alt="Javascript Pseudo-Classical Subclassing" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/Javascript-Pseudo-Classical-Subclassing/" class="title">Javascript Pseudo-Classical Subclassing</a></p>
-              <p class="item-date"><time datetime="2015-08-11T19:52:53.000Z" itemprop="datePublished">2015-08-11</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Javascript-Design-Patterns/" class="thumbnail">
-  
-    <span style="background-image:url(/designpatterns.jpg)" alt="Software Design Patterns" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/Javascript-Design-Patterns/" class="title">Software Design Patterns</a></p>
-              <p class="item-date"><time datetime="2015-08-11T16:20:49.000Z" itemprop="datePublished">2015-08-11</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bookshelf-js/">Bookshelf.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Patterns/">Design Patterns</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Developer-Tools/">Developer Tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ExpressJS/">ExpressJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Firebase/">Firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobile-Development/">Mobile Development</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SceneKit/">SceneKit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vapor/">Vapor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">2</span></li></ul>
-    </div>
-  </div>
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="yumemor">yumemor</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
-</aside>
-      
+        <a href="https://github.com/kylerokita/kylerokita.github.io" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+             
+
+        </ul>
+
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 - 2016 Kyle Rokita<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
-    
 
+		
+		<script src="/js/typer.js"></script>
 
+		<script src="/js/geopattern.js"></script>
 
+		<script src="/js/index.js"></script>
 
+		 <script src="/js/popular_repo.js"></script> 
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
+	</body>
 </html>
