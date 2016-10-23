@@ -58,7 +58,7 @@
 <p>3) Install the Vapor toolbox using terminal commamd:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sL toolbox.vapor.sh | bash</div></pre></td></tr></table></figure>
 <p>4) If everything went smoothly, congrats Vapor is installed!</p>
-<h2 id="Your-first-Vapor-project"><a href="#Your-first-Vapor-project" class="headerlink" title="Your first Vapor project"></a>Your first Vapor project</h2><p>1) The Vapor toolbox provides a standard template for a new project. Clone the standard template project using the following terminal command:</p>
+<h2 id="Your-First-Vapor-Server"><a href="#Your-First-Vapor-Server" class="headerlink" title="Your First Vapor Server"></a>Your First Vapor Server</h2><p>1) The Vapor toolbox provides a standard template for a new project. Clone the standard template project using the following terminal command:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vapor new first-project</div></pre></td></tr></table></figure>
 <p>2) Vapor projects make use of the standard Swift Package Manager. Each project includes a Package.swift file that tells the package manager what other repos are dependencies fo the current project. The Swift Package Manager will clone each dependency repo into its Packages folder. Each dependency repo also has its own Package.swift file that lists is dependenceis. These dependencies will also be automatically downloaded and this process will continue recursively until every dependency is cloned. </p>
 <p>In our template-project, you will see that the Vapor framework is listed as a dependency. You can add additional Swift packages to your project in the future. For now, let’s fetch all of the package dependencies using the command:</p>
@@ -70,7 +70,7 @@
 <p>Then simply open up the new .xcodeproj in Xcode and start your server by selecting the App scheme and hitting the run button. The Xcode console should show that port the server is running on like so:</p>
 <p><img src="/vapor-template-xcode-screenshot.png" alt=""></p>
 <p>You can see this Vapor template project on <a href="https://github.com/kylerokita/technikyle-vapor-template" target="_blank" rel="external">Github</a>.</p>
-<h2 id="Explore-Vapor-Documentation"><a href="#Explore-Vapor-Documentation" class="headerlink" title="Explore Vapor Documentation"></a>Explore Vapor Documentation</h2><p>Vapor is a full-featured server framework with support for RESTful APIs, authentication, templating, routing, middleware and database ORMs. Check out the <a href="https://vapor.github.io/documentation/" target="_blank" rel="external">Vapor documentation</a> for more information. They also link to several examples as well as instructions for deploying to Heroku, Docker, Digital Ocean, AWS, and more. </p>
+<h2 id="Explore-The-Vapor-Documentation"><a href="#Explore-The-Vapor-Documentation" class="headerlink" title="Explore The Vapor Documentation"></a>Explore The Vapor Documentation</h2><p>Vapor is a full-featured server framework with support for RESTful APIs, authentication, templating, routing, middleware and database ORMs. Check out the <a href="https://vapor.github.io/documentation/" target="_blank" rel="external">Vapor documentation</a> for more information. They also link to several examples as well as instructions for deploying to Heroku, Docker, Digital Ocean, AWS, and more. </p>
 
             </article>
             
@@ -118,7 +118,7 @@
 
 <div id="post-directory-module">
 	<section class="post-directory">
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-Side-Swift"><span class="toc-text">Server-Side Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vapor-Introduction"><span class="toc-text">Vapor Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-Vapor"><span class="toc-text">Installing Vapor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Your-first-Vapor-project"><span class="toc-text">Your first Vapor project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explore-Vapor-Documentation"><span class="toc-text">Explore Vapor Documentation</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-Side-Swift"><span class="toc-text">Server-Side Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vapor-Introduction"><span class="toc-text">Vapor Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-Vapor"><span class="toc-text">Installing Vapor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Your-First-Vapor-Server"><span class="toc-text">Your First Vapor Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explore-The-Vapor-Documentation"><span class="toc-text">Explore The Vapor Documentation</span></a></li></ol>
 	</section>
 </div>
             
