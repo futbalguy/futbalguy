@@ -49,9 +49,28 @@
     <div class="columns">
         <div class="column three-fourths" >
             <article class="article-content article-entry">
-                <p><img src="/vapor.png 300px 300px" alt=""></p>
-<p>I recently took the server-side Swift framework <strong>Vapor</strong> for a spin and want to share the experience!<br><a id="more"></a><br>Swift has always been touted as a multipurpose language, but since it was open-sourced developers have been accelerating the rate of awesome projects. Vapor seems to have an especially energetic and inviting group of contributors. I even contributed a few PRs  as I found bugs It has been a really great learning experience to participate in the development as it reached version 1.0 alongside the release of Swift 3.0.</p>
-<p>As a disclaimer, much of my prior backend experience was with Node.js and the Express framework so that has informed by perspective. I was hoping Vapor could be as easy to understand as Express, but with the added protection from programmer error that is a big part of Swift’s focus (i.e. strong-typing, optionals, etc.).</p>
+                <p>I recently took the server-side Swift framework <a href="http://vapor.codes" target="_blank" rel="external">Vapor</a> for a spin and want to share the experience! I will show you how to build a server written in Swift and ready for deployment!<br><a id="more"></a></p>
+<h2 id="Server-Side-Swift"><a href="#Server-Side-Swift" class="headerlink" title="Server-Side Swift"></a>Server-Side Swift</h2><p>Swift has been touted as a multipurpose language since its introduction, but it was originally used for most of the same client-side applications as Objective-C. Since Swift was open-sourced, developers have started releasing all sorts of projects for other platforms. </p>
+<h2 id="Vapor-Introduction"><a href="#Vapor-Introduction" class="headerlink" title="Vapor Introduction"></a>Vapor Introduction</h2><p>For my first Swift server, I chose to use the Vapor framework because it is open-source and has an energetic and active group of contributors. I even contributed a few pull requests as I found bugs in pre-release versions. It has been a really great learning experience to participate in the development as it reached version 1.0 alongside the release of Swift 3.0.</p>
+<p>Server-side Swift if very exciting becauase it enables the possibility of building client-side and server-side with the same language. And unlike Node.js, Vapor uses a strongly-typed language focused on reducing programmer error. It is also exciting to use Xcode for both client and server development!</p>
+<h2 id="Installing-Vapor"><a href="#Installing-Vapor" class="headerlink" title="Installing Vapor"></a>Installing Vapor</h2><p>1) Install Xcode 8 which comes with Swift 3.0<br>2) Check that your system is compatible with Vapor using this terminal command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sL check.vapor.sh | bash</div></pre></td></tr></table></figure>
+<p>3) Install the Vapor toolbox using terminal commamd:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sL toolbox.vapor.sh | bash</div></pre></td></tr></table></figure>
+<p>4) If everything went smoothly, congrats Vapor is installed!</p>
+<h2 id="Your-first-Vapor-project"><a href="#Your-first-Vapor-project" class="headerlink" title="Your first Vapor project"></a>Your first Vapor project</h2><p>1) The Vapor toolbox provides a standard template for a new project. Clone the standard template project using the following terminal command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vapor new first-project</div></pre></td></tr></table></figure>
+<p>2) Vapor projects make use of the standard Swift Package Manager. Each project includes a Package.swift file that tells the package manager what other repos are dependencies fo the current project. The Swift Package Manager will clone each dependency repo into its Packages folder. Each dependency repo also has its own Package.swift file that lists is dependenceis. These dependencies will also be automatically downloaded and this process will continue recursively until every dependency is cloned. </p>
+<p>In our template-project, you will see that the Vapor framework is listed as a dependency. You can add additional Swift packages to your project in the future. For now, let’s fetch all of the package dependencies using the command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vapor fetch</div></pre></td></tr></table></figure>
+<p>3) At this point, you can go either build and start a server from the command-line using:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vapor build</div><div class="line">vapor run</div></pre></td></tr></table></figure>
+<p>or you can do something even cooler and create an Xcode project and benefit from all of the great features of the IDE (i.e autocompletion). To generate the Xcode project, run the command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vapor xcode</div></pre></td></tr></table></figure>
+<p>Then simply open up the new .xcodeproj in Xcode and start your server by selecting the App scheme and hitting the run button. The Xcode console should show that port the server is running on like so:</p>
+<p><img src="/vapor-template-xcode-screenshot.png" alt=""></p>
+<p>You can see this Vapor template project on <a href="https://github.com/kylerokita/technikyle-vapor-template" target="_blank" rel="external">Github</a>.</p>
+<h2 id="Explore-Vapor-Documentation"><a href="#Explore-Vapor-Documentation" class="headerlink" title="Explore Vapor Documentation"></a>Explore Vapor Documentation</h2><p>Vapor is a full-featured server framework with support for RESTful APIs, authentication, templating, routing, etc. Checkout the <a href="https://vapor.github.io/documentation/" target="_blank" rel="external">Vapor documentation</a> for more information. They also link to several examples showing more advanced use-cases.</p>
 
             </article>
             
@@ -99,7 +118,7 @@
 
 <div id="post-directory-module">
 	<section class="post-directory">
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-Side-Swift"><span class="toc-text">Server-Side Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vapor-Introduction"><span class="toc-text">Vapor Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-Vapor"><span class="toc-text">Installing Vapor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Your-first-Vapor-project"><span class="toc-text">Your first Vapor project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explore-Vapor-Documentation"><span class="toc-text">Explore Vapor Documentation</span></a></li></ol>
 	</section>
 </div>
             
